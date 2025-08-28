@@ -21,9 +21,9 @@ MonoBehaviour:
   probability: 1
   alternateWithPrevious: 1
   spawnInterval: 4
-  requiresMaxBullets: 0
+  requiresMaxBullets: 1
   stopAfterMaxBullets: 0
   requiresOddMove: 0
-  requiredScore: 1000
+  requiredScore: 0
   requiredLevel: 0
   spawnAfterMove: 0

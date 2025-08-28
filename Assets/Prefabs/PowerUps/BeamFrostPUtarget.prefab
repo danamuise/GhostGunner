@@ -9943,7 +9943,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::MagicArsenal.BeamPUvfx
   beamLineRendererPrefab: {fileID: 7736653140990091135, guid: 13fda314784dbfd43bc17d6b0627d92a, type: 3}
   beamStartPrefab: {fileID: 134198, guid: f14992af264fc284db1d246f979ea63f, type: 3}
-  beamEndPrefab: {fileID: 0}
+  beamEndPrefab: {fileID: 113256, guid: 01b32c1e97b390f4b82f26b2d4a847ee, type: 3}
   beamStartPos: {fileID: 0}
   autoFindNamedTargets: 1
   beamTargets: []
@@ -9964,7 +9964,7 @@ MonoBehaviour:
   legacyBeamTargetLeft: {fileID: 0}
   legacyBeamTargetRight: {fileID: 0}
   gridManager: {fileID: 0}
-  effectDuration: 2
+  effectDuration: 4
   awardByHealth: 1
   defaultTargetHealth: 1
 --- !u!1 &7842483927478078189

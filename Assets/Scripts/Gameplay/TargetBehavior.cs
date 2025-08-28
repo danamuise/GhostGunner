@@ -103,6 +103,8 @@ public class TargetBehavior : MonoBehaviour
             // Bullets: +1 per hit (legacy)
             if (source == DamageSource.Bullet)
             {
+                string[] grunts = { "Grunt0", "Grunt1", "Grunt2", "Grunt3", "Grunt4", "Grunt5" };
+                SFXManager.Instance.PlayRandom(grunts, 0.5f, 0.6f, 1.3f);
                 gm.AddScore(1);
             }
         }
