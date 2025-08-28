@@ -14,6 +14,7 @@ public class ClickableSpriteButton : MonoBehaviour
 
     private GameManager gameManager;
 
+    [System.Obsolete]
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();

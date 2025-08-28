@@ -1,15 +1,14 @@
-﻿using UnityEngine;
+﻿// 8/26/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.Rendering;
 
 public class GridTargetSpawner : MonoBehaviour
 {
     [Header("Target Prefabs (Assigned in Inspector)")]
     public List<GameObject> targetPrefabs;
-
-    [Header("PowerUp Settings")]
-    public List<PowerUpData> powerUps;
-    public PowerUpManager powerUpManager;
 
     [Header("Grid Reference")]
     public TargetGridManager grid;
@@ -34,6 +33,9 @@ public class GridTargetSpawner : MonoBehaviour
     [Header("Health Clamp")]
     public int maxHealthClamp = 40;
 
+    [Header("Power-Up Manager")]
+    public PowerUpManager powerUpManager;
+
     private Transform targetParent;
     private int lastEmptyColumn = -1;
     private int targetIdCounter = 0;
@@ -49,12 +51,24 @@ public class GridTargetSpawner : MonoBehaviour
 
     private void Awake()
     {
+        if (powerUpManager == null)
+        {
+            powerUpManager = FindObjectOfType<PowerUpManager>();
+            if (powerUpManager == null)
+            {
+                Debug.LogError("PowerUpManager is not assigned and could not be found in the scene!");
+            }
+        }
+
         GameObject parentObj = GameObject.Find("Targets");
         targetParent = parentObj != null ? parentObj.transform : new GameObject("Targets").transform;
     }
 
     public void SpawnTargetsInArea(int areaIndex, int moveCount)
     {
+        Debug.Log($"moveCount: {moveCount}, areaIndex: {areaIndex}");
+        Debug.Log("SpawnTargetsInArea called");
+
         if (targetPrefabs == null || targetPrefabs.Count == 0) return;
 
         int columns = grid.GetColumnCount();
@@ -122,9 +136,6 @@ public class GridTargetSpawner : MonoBehaviour
         }
 
         spawnRowCounter++;
-
-        if (moveCount >= 5 && areaIndex % 2 == 1)
-            SpawnPowerUpInRow(areaIndex, moveCount);
     }
 
     public void AdvanceAllTargetsAndSpawnNew(int dummyMoveCount)
@@ -187,39 +198,18 @@ public class GridTargetSpawner : MonoBehaviour
         }
 
         SpawnTargetsInArea(0, dummyMoveCount);
-        powerUpManager.TrySpawnPowerUp(dummyMoveCount);
+        powerUpManager.TrySpawnPowerUp(dummyMoveCount); // Delegate power-up spawning to PowerUpManager
         grid.AnnounceAvailableSpacesInRow(0);
-    }
 
-    private void SpawnPowerUpInRow(int rowIndex, int moveCount)
-    {
-        BulletPool bulletPool = FindObjectOfType<BulletPool>();
-        if (bulletPool == null || bulletPool.GetActiveBulletCount() >= bulletPool.GetTotalBulletCount()) return;
-        if (moveCount < 2 || moveCount % 2 != 1) return;
-        if (powerUps == null || powerUps.Count == 0) return;
-
-        PowerUpData puData = powerUps[0];
-        if (puData.powerUpPrefab == null) return;
-
-        int columns = grid.GetColumnCount();
-        List<int> emptyCols = new();
-        for (int col = 0; col < columns; col++)
-            if (!grid.IsCellOccupied(col, rowIndex)) emptyCols.Add(col);
-
-        if (emptyCols.Count == 0) return;
-
-        int colIndex = emptyCols[Random.Range(0, emptyCols.Count)];
-        Vector2 spawnPos = grid.GetWorldPosition(colIndex, rowIndex);
-
-        GameObject pu = Instantiate(puData.powerUpPrefab, spawnPos, Quaternion.identity);
-        var mover = pu.GetComponent<PowerUpMover>();
-        if (mover != null) mover.AnimateToPosition(spawnPos, 0.5f, true);
-
-        grid.MarkCellOccupied(colIndex, rowIndex, true);
-        puData.lastUsedMove = moveCount;
-        puData.timesUsed++;
-
-        Debug.Log($"<color=lime>✅ Power-up spawned: {puData.powerUpName} at row {rowIndex}, col {colIndex}</color>");
+        // Call the PowerUpManager to handle power-up spawning
+        /*if (powerUpManager != null)
+        {
+            powerUpManager.TrySpawnPowerUp(dummyMoveCount);
+        }
+        else
+        {
+            Debug.LogError("PowerUpManager reference is missing!");
+        }*/
     }
 
     private void Shuffle(List<int> list)
@@ -245,7 +235,6 @@ public class GridTargetSpawner : MonoBehaviour
 
         return Random.Range(min, max + 1);
     }
-
 
     public void AssignSortingOrderByRow(GameObject target, int rowIndex, int moveNumber, int baseOrder = 1000)
     {

@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
         roundInProgress = false;
     }
 
+    [System.Obsolete]
     private void Start()
     {
         if (grid == null) grid = FindObjectOfType<TargetGridManager>();
@@ -81,11 +82,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-
     public void AddScore(int amount)
     {
         Debug.Log($"➕ Adding {amount} points to score. New total: {totalScore + amount}");
         totalScore += amount;
+
+        // Synchronize with GameState
+        GameState.Instance.CurrentScore = totalScore;
+
         uiManager.UpdateScoreDisplay(totalScore);
 
         SpecialWeapons sw = FindObjectOfType<SpecialWeapons>();
@@ -150,6 +154,7 @@ public class GameManager : MonoBehaviour
         roundInProgress = false;
     }
 
+    [System.Obsolete]
     private void TriggerGameOver()
     {
         Debug.Log("💀 GAME OVER!");
@@ -197,6 +202,7 @@ public class GameManager : MonoBehaviour
     public void ResetScore()
     {
         totalScore = 0;
+        GameState.Instance.CurrentScore = 0; // Synchronize with GameState
     }
 
     public int GetScore()

@@ -1,0 +1,76 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &140436
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 499344}
+  - component: {fileID: 2872464365853824554}
+  m_Layer: 0
+  m_Name: FrostBeamPUmaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &499344
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140436}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2872464365853824554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87e12114d5ba8514e8f36b73d134f68d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MagicArsenal.BeamPUvfx
+  beamLineRendererPrefab: {fileID: 7736653140990091135, guid: 13fda314784dbfd43bc17d6b0627d92a, type: 3}
+  beamStartPrefab: {fileID: 134198, guid: f14992af264fc284db1d246f979ea63f, type: 3}
+  beamEndPrefab: {fileID: 113256, guid: 01b32c1e97b390f4b82f26b2d4a847ee, type: 3}
+  beamStartPos: {fileID: 0}
+  autoFindNamedTargets: 1
+  beamTargets:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  baseWidth: 0.1
+  textureScrollSpeed: 1
+  textureLengthScale: 1
+  widthMultiplier: 2
+  pulseSpeed: 1
+  spawnOnStart: 1
+  drawGizmos: 1
+  offshootUp: {fileID: 2461811516546395711, guid: 20d1a4143443c124e8c9165bd3b25eb0, type: 3}
+  offshootDown: {fileID: 892653328638721543, guid: 8bc4ac840c28e2745ad562d359f881bc, type: 3}
+  offshootLeft: {fileID: 4486563475632222643, guid: e79218ee50a4075459b1c97f96115d16, type: 3}
+  offshootRight: {fileID: 2960296254115091592, guid: b9a77c463ca71f644aea5f2dd5c0bc36, type: 3}
+  manageLegacyBeamTargetEmpties: 0
+  legacyBeamTargetUp: {fileID: 0}
+  legacyBeamTargetDown: {fileID: 0}
+  legacyBeamTargetLeft: {fileID: 0}
+  legacyBeamTargetRight: {fileID: 0}
+  gridManager: {fileID: 0}
+  effectDuration: 2
+  awardByHealth: 1
+  defaultTargetHealth: 1

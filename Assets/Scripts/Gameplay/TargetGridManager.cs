@@ -60,6 +60,7 @@ public class TargetGridManager : MonoBehaviour
     public int GetRowCount() => rows;
 
     // 🔥 New simple debug helper
+    [System.Obsolete]
     public void AnnounceAvailableSpacesInRow(int rowIndex)
     {
         Debug.Log("AnnounceAvailableSpacesInRow");

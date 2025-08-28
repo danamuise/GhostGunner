@@ -89,6 +89,7 @@ public class GameState : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     public void SaveState()
     {
         TargetHealthCurve curve = FindObjectOfType<TargetHealthCurve>();

@@ -32,6 +32,7 @@ public class SWTarget : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
     }
 
+    [System.Obsolete]
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (isActivated) return;
@@ -43,7 +44,7 @@ public class SWTarget : MonoBehaviour
         if (cachedCollider) cachedCollider.enabled = false;
         if (rb2d)
         {
-            rb2d.velocity = Vector2.zero;
+            rb2d.linearVelocity = Vector2.zero;
             rb2d.angularVelocity = 0f;
             rb2d.simulated = false;
         }

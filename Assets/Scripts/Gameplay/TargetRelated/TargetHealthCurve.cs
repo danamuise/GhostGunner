@@ -108,6 +108,7 @@ public class TargetHealthCurve : MonoBehaviour
         return healthHistory[move - 1];
     }
 
+    [System.Obsolete]
     private int GetCurrentMoveCount()
     {
         GameManager gm = FindObjectOfType<GameManager>();

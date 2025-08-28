@@ -1,22 +1,49 @@
-﻿using System.Collections.Generic;
+﻿// 8/27/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+// 8/26/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
 {
     [Header("References")]
     public TargetGridManager gridTargetManager;      // Assign in Inspector
-    public Transform powerUpParent;                  // Container for all power-ups
+    public Transform powerUpParent;                 // Container for all power-ups
+    [SerializeField] private GameManager gameManager; // Assign in Inspector
+    [SerializeField] private BulletPool bulletPool;
 
     [Header("Power-Ups")]
-    public List<PowerUpData> powerUps;               // Each PowerUpData defines prefab, VFX, SFX, etc.
+    public List<PowerUpData> powerUps; // List of power-up ScriptableObjects
 
     [Header("VFX / SFX Settings")]
     public Vector2 vfxOffset = new Vector2(0f, 0.9f);
 
     private int totalTargetSpawnCycles = 0;
-    private bool hasSpawnedNukePU = false;
+    private bool hasSpawnedPowerUpThisMove = false; // Tracks if a power-up has already spawned this move
 
-    private bool hasSpawnedFirePU = false; // 🔥 New tracker for FireSWtarget
+    private PowerUpData lastAlternatedPowerUp = null;
+
+
+    private void Awake()
+    {
+        if (gridTargetManager == null)
+        {
+            Debug.LogError("[PowerUpManager] TargetGridManager is not assigned!");
+        }
+
+        if (gameManager == null)
+        {
+            Debug.LogError("[PowerUpManager] GameManager is not assigned!");
+        }
+
+        if (bulletPool == null)
+        {
+            Debug.LogError("[PowerUpManager] BulletPool is not assigned!");
+        }
+    }
 
     public void TrySpawnPowerUp(int move)
     {
@@ -26,73 +53,67 @@ public class PowerUpManager : MonoBehaviour
             return;
         }
 
-        BulletPool bulletPool = FindObjectOfType<BulletPool>();
-        if (bulletPool == null) return;
+        if (bulletPool == null)
+        {
+            Debug.LogWarning("[PowerUpManager] BulletPool is not found.");
+            return;
+        }
+
+        // Reset the flag for this move
+        hasSpawnedPowerUpThisMove = false;
 
         List<int> availableCols = gridTargetManager.GetAvailableColumnsInRow(0);
         if (availableCols == null || availableCols.Count == 0)
         {
-            Debug.LogWarning("⚠️ No available columns for power-up spawn.");
+            Debug.LogWarning("[PowerUpManager] No available columns for power-up spawn.");
             return;
         }
 
-        PowerUpData selectedPU = null;
-        GameManager gm = FindObjectOfType<GameManager>();
-
-        //+++++++++++++++++++++++++++++++++++++++++++ for testing
-        Debug.Log($"🔥 hasSpawnedFirePU = {hasSpawnedFirePU}");
-        Debug.Log($"🔥 gm = {(gm != null ? "valid" : "null")}");
-        Debug.Log($"🔥 gm.GetScore() = {gm?.GetScore()}");
-        Debug.Log($"🔥 GameState.LevelNumber = {GameState.Instance.LevelNumber}");
-        Debug.Log($"🔥 powerUps.Count = {powerUps.Count}");
-        //+++++++++++++++++++++++++++++++++++++++++++ for testing
-
-        // 🧨 NukePU logic
-        if (!hasSpawnedNukePU && gm != null && GameState.Instance.LevelNumber == 1 && gm.GetScore() >= 2000 && powerUps.Count > 2)
-        {
-            Debug.Log("✅ LEVEL 1 && SCORE ≥ 2000 — Spawning NukePU");
-            selectedPU = powerUps[2]; // Assumes NukePU is third in list
-            hasSpawnedNukePU = true;
-        }
-            // 🔥 FirePU logic
-        else if (!hasSpawnedFirePU && gm != null &&
-                 gm.GetScore() >= 3200 && GameState.Instance.LevelNumber == 2 &&
-                 powerUps.Count > 3)
-        {
-            Debug.Log("🔥 SCORE IS OVER 3200 — Spawning FireSWtarget");
-            selectedPU = powerUps[3]; // Assumes FireSWtarget is 4th in list
-            hasSpawnedFirePU = true;
-        }
-        // ➕ AddBulletPU logic (every 2nd move)
-        else if (bulletPool.GetEnabledBulletCount() < bulletPool.GetTotalBulletCount())
-        {
-            if (move % 2 == 0 && powerUps.Count > 0)
-            {
-                Debug.Log("💡 Selecting AddBulletPU");
-                selectedPU = powerUps[0];
-            }
-        }
-        // 💣 ProximityBombPU logic (every 4th spawn cycle)
-        else
-        {
-            totalTargetSpawnCycles++;
-            if (totalTargetSpawnCycles % 4 == 0 && powerUps.Count > 1)
-            {
-                Debug.Log("💣 Selecting ProximityBombPU");
-                selectedPU = powerUps[1];
-            }
-        }
-
+        PowerUpData selectedPU = SelectPowerUp(move);
         if (selectedPU == null || selectedPU.powerUpPrefab == null)
         {
-            Debug.Log("🛑 No eligible power-up selected.");
+            Debug.Log("[PowerUpManager] No eligible power-up selected.");
             return;
         }
 
+        // Spawn the selected power-up
+        SpawnPowerUp(selectedPU, availableCols, move);
+
+        // Mark that a power-up has been spawned this move
+        hasSpawnedPowerUpThisMove = true;
+    }
+
+    private PowerUpData SelectPowerUp(int move)
+    {
+        PowerUpData selectedPowerUp = null;
+
+        foreach (var powerUp in powerUps)
+        {
+            // Check if the power-up is eligible
+            if (powerUp.IsEligible(move, bulletPool.GetTotalBulletCount(), bulletPool.GetEnabledBulletCount(), gameManager.GetScore(), GameState.Instance.LevelNumber))
+            {
+                selectedPowerUp = powerUp;
+
+                // Handle alternation logic
+                if (powerUp.priority == lastAlternatedPowerUp?.priority)
+                {
+                    continue; // Skip if this power-up alternates and was the last one used
+                }
+
+                lastAlternatedPowerUp = powerUp;
+                break; // Stop at the first eligible power-up
+            }
+        }
+
+        return selectedPowerUp;
+    }
+
+    private void SpawnPowerUp(PowerUpData powerUpData, List<int> availableCols, int move)
+    {
         int chosenCol = availableCols[Random.Range(0, availableCols.Count)];
         Vector2 spawnPos = gridTargetManager.GetWorldPosition(chosenCol, 0);
 
-        GameObject newPU = Instantiate(selectedPU.powerUpPrefab, spawnPos, Quaternion.identity, powerUpParent);
+        GameObject newPU = Instantiate(powerUpData.powerUpPrefab, spawnPos, Quaternion.identity, powerUpParent);
 
         PowerUpMover mover = newPU.GetComponent<PowerUpMover>();
         if (mover != null)
@@ -101,7 +122,7 @@ public class PowerUpManager : MonoBehaviour
         }
 
         gridTargetManager.MarkCellOccupied(chosenCol, 0, true);
-        Debug.Log($"🧲 Spawned: {selectedPU.powerUpName} — Move {move}, Column {chosenCol + 1}");
+        Debug.Log($"[PowerUpManager] Spawned: {powerUpData.powerUpName} — Move {move}, Column {chosenCol + 1}");
     }
 
     public void PlayPickupEffects(Vector2 position, PowerUpData powerUpData)
@@ -112,9 +133,8 @@ public class PowerUpManager : MonoBehaviour
         if (powerUpData.pickupVFX != null)
         {
             Vector2 vfxPos = position + vfxOffset;
-            Vector3 worldPos = new Vector3(position.x, position.y, 0f);
+            Vector3 worldPos = new Vector3(vfxPos.x, vfxPos.y, 0f);
             GameObject vfx = Instantiate(powerUpData.pickupVFX, worldPos, Quaternion.identity);
-            //vfx.transform.localScale = Vector3.one * 0.03f;
             Destroy(vfx, 2f);
         }
 
@@ -126,7 +146,7 @@ public class PowerUpManager : MonoBehaviour
     }
 
     [System.Diagnostics.Conditional("UNITY_EDITOR")]
-    void DrawDebugMarker(Vector3 pos, Color color)
+    private void DrawDebugMarker(Vector3 pos, Color color)
     {
 #if UNITY_EDITOR
         GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);

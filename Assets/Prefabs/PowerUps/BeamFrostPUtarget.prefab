@@ -38,7 +38,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &295460971477748910
 Animator:
-  serializedVersion: 5
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -52,6 +52,7 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
@@ -4798,6 +4799,11 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -4819,6 +4825,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 130303049
   m_SortingLayer: 2
   m_SortingOrder: 6
@@ -9686,6 +9693,11 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9707,6 +9719,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 130303049
   m_SortingLayer: 2
   m_SortingOrder: 32767
@@ -9791,6 +9804,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -9812,6 +9830,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 130303049
   m_SortingLayer: 2
   m_SortingOrder: 3
@@ -9837,7 +9856,7 @@ GameObject:
   - component: {fileID: 719882935562587007}
   - component: {fileID: 8897784278200671190}
   - component: {fileID: 7217119290920716025}
-  - component: {fileID: 2104802124540820351}
+  - component: {fileID: 3133298277591713707}
   m_Layer: 0
   m_Name: BeamFrostPUtarget
   m_TagString: PowerUp
@@ -9870,6 +9889,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7329726899166178089}
   m_Enabled: 1
+  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -9893,9 +9913,9 @@ CircleCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_UsedByComposite: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
   m_Radius: 0.28
 --- !u!114 &7217119290920716025
 MonoBehaviour:
@@ -9909,7 +9929,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18438d49ab702b4458990d09a093ca56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2104802124540820351
+--- !u!114 &3133298277591713707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9920,9 +9940,9 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 87e12114d5ba8514e8f36b73d134f68d, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  beamLineRendererPrefab: {fileID: 0}
-  beamStartPrefab: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::MagicArsenal.BeamPUvfx
+  beamLineRendererPrefab: {fileID: 7736653140990091135, guid: 13fda314784dbfd43bc17d6b0627d92a, type: 3}
+  beamStartPrefab: {fileID: 134198, guid: f14992af264fc284db1d246f979ea63f, type: 3}
   beamEndPrefab: {fileID: 0}
   beamStartPos: {fileID: 0}
   autoFindNamedTargets: 1
@@ -9932,8 +9952,21 @@ MonoBehaviour:
   textureLengthScale: 1
   widthMultiplier: 1.5
   pulseSpeed: 1
-  spawnOnStart: 1
+  spawnOnStart: 0
   drawGizmos: 1
+  offshootUp: {fileID: 2461811516546395711, guid: 20d1a4143443c124e8c9165bd3b25eb0, type: 3}
+  offshootDown: {fileID: 892653328638721543, guid: 8bc4ac840c28e2745ad562d359f881bc, type: 3}
+  offshootLeft: {fileID: 4486563475632222643, guid: e79218ee50a4075459b1c97f96115d16, type: 3}
+  offshootRight: {fileID: 2960296254115091592, guid: b9a77c463ca71f644aea5f2dd5c0bc36, type: 3}
+  manageLegacyBeamTargetEmpties: 0
+  legacyBeamTargetUp: {fileID: 0}
+  legacyBeamTargetDown: {fileID: 0}
+  legacyBeamTargetLeft: {fileID: 0}
+  legacyBeamTargetRight: {fileID: 0}
+  gridManager: {fileID: 0}
+  effectDuration: 2
+  awardByHealth: 1
+  defaultTargetHealth: 1
 --- !u!1 &7842483927478078189
 GameObject:
   m_ObjectHideFlags: 0
@@ -9983,6 +10016,11 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -10004,6 +10042,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 130303049
   m_SortingLayer: 2
   m_SortingOrder: 10

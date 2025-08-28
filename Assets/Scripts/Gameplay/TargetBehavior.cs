@@ -88,6 +88,7 @@ public class TargetBehavior : MonoBehaviour
     /// awards score based on DamageSource. On kill by FireSW or ProximityBomb,
     /// awards the target's remaining HP as a bonus.
     /// </summary>
+    [System.Obsolete]
     public void ApplyDamage(int amount, DamageSource source)
     {
         if (isDying) return;
@@ -210,6 +211,7 @@ public class TargetBehavior : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, 0f, persistentZRotation);
     }
 
+    [System.Obsolete]
     public void AnimateToPosition(Vector2 gridAlignedPosition, float duration = 0.5f, bool fromEndzone = false)
     {
         int moveNumber = FindObjectOfType<GameManager>()?.GetMoveCount() ?? -1;

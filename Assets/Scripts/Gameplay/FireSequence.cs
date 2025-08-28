@@ -27,6 +27,7 @@ public class FireSequence : MonoBehaviour
         StartCoroutine(RunSequence());
     }
 
+    [System.Obsolete]
     private IEnumerator RunSequence()
     {
         grid = FindObjectOfType<TargetGridManager>();

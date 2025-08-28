@@ -13,6 +13,7 @@ public class ProximityBombPU : MonoBehaviour
 
     private TargetGridManager gridManager;
 
+    [System.Obsolete]
     private void Awake()
     {
         gridManager = FindObjectOfType<TargetGridManager>();
@@ -26,6 +27,7 @@ public class ProximityBombPU : MonoBehaviour
         }
     }
 
+    [System.Obsolete]
     public void Activate()
     {
         if (gridManager == null)

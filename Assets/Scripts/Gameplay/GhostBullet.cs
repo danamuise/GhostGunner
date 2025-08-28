@@ -67,7 +67,7 @@ public class GhostBullet : MonoBehaviour
 
         rb.bodyType = RigidbodyType2D.Kinematic;
         rb.gravityScale = 0f;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         bulletLifeTimer = 0f;
     }
 
@@ -78,7 +78,7 @@ public class GhostBullet : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         rb.gravityScale = 0f;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
     }
 
@@ -111,7 +111,7 @@ public class GhostBullet : MonoBehaviour
                 {
                     rb.bodyType = RigidbodyType2D.Dynamic;
                     rb.gravityScale = 0f;
-                    rb.velocity = Vector2.zero;
+                    rb.linearVelocity = Vector2.zero;
 
                     inGhostMode = false;
                     isInLaserMode = false;
@@ -138,11 +138,11 @@ public class GhostBullet : MonoBehaviour
         }
         else if (inGhostMode)
         {
-            rb.velocity += Vector2.up * gravityStrength * Time.fixedDeltaTime;
+            rb.linearVelocity += Vector2.up * gravityStrength * Time.fixedDeltaTime;
         }
         else if (isSlidingToWall)
         {
-            rb.velocity = new Vector2(wallSlideDirection.x * laserSpeed, 0f);
+            rb.linearVelocity = new Vector2(wallSlideDirection.x * laserSpeed, 0f);
 
             RaycastHit2D hit = Physics2D.Raycast(transform.position, wallSlideDirection, 0.1f, laserCollisionMask);
             if (hit.collider != null &&
@@ -155,7 +155,7 @@ public class GhostBullet : MonoBehaviour
         }
         else if (isDroppingDown)
         {
-            rb.velocity = Vector2.down * wallDropSpeed;
+            rb.linearVelocity = Vector2.down * wallDropSpeed;
 
             if (dropStartTime < 0f)
                 dropStartTime = Time.time;
@@ -203,7 +203,7 @@ public class GhostBullet : MonoBehaviour
 
         if (canCheckStuck && Time.time - ghostModeStartTime > stuckDetectionDelay)
         {
-            float velocity = rb.velocity.magnitude;
+            float velocity = rb.linearVelocity.magnitude;
 
             if (velocity < velocityThreshold && !hasLoggedStuck)
             {
@@ -213,7 +213,7 @@ public class GhostBullet : MonoBehaviour
                     hasLoggedStuck = true;
 
                     // 🛟 RESCUE ACTION: bounce forcefully with slight horizontal deflection
-                    Vector2 bounceDir = -rb.velocity.normalized;
+                    Vector2 bounceDir = -rb.linearVelocity.normalized;
                     if (bounceDir == Vector2.zero)
                         bounceDir = Vector2.down; // fallback direction
 
@@ -221,8 +221,8 @@ public class GhostBullet : MonoBehaviour
                     bounceDir += new Vector2(sideJitter, 0f);
                     bounceDir.Normalize();
 
-                    rb.velocity = Vector2.zero;
-                    rb.velocity = bounceDir * rescueBounceForce;
+                    rb.linearVelocity = Vector2.zero;
+                    rb.linearVelocity = bounceDir * rescueBounceForce;
                 }
 
             }
@@ -251,7 +251,7 @@ public class GhostBullet : MonoBehaviour
 
             rb.bodyType = RigidbodyType2D.Dynamic;
             rb.gravityScale = 0f;
-            rb.velocity = Vector2.zero;
+            rb.linearVelocity = Vector2.zero;
 
             inGhostMode = false;
             isInLaserMode = false;
@@ -272,7 +272,7 @@ public class GhostBullet : MonoBehaviour
             {
                 rb.bodyType = RigidbodyType2D.Dynamic;
                 rb.gravityScale = 0f;
-                rb.velocity = Vector2.zero;
+                rb.linearVelocity = Vector2.zero;
 
                 isInLaserMode = false;
                 inGhostMode = false;
@@ -298,7 +298,7 @@ public class GhostBullet : MonoBehaviour
 
         rb.bodyType = RigidbodyType2D.Dynamic;
         rb.gravityScale = 0f;
-        rb.velocity = laserDirection * laserSpeed * 0.75f;
+        rb.linearVelocity = laserDirection * laserSpeed * 0.75f;
     }
 
     public void EnterTank()
@@ -311,7 +311,7 @@ public class GhostBullet : MonoBehaviour
         dropStartTime = -1f;
 
         rb.gravityScale = 0f;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.bodyType = RigidbodyType2D.Kinematic;
 
         if (tankTransform == null)
@@ -370,7 +370,7 @@ public class GhostBullet : MonoBehaviour
         isInTank = false;
 
         rb.bodyType = RigidbodyType2D.Kinematic;
-        rb.velocity = Vector2.zero;
+        rb.linearVelocity = Vector2.zero;
         rb.gravityScale = 0f;
     }
 
