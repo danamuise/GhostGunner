@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &676041121772867941
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5534801692906830096}
+  - component: {fileID: 2317451034576969513}
+  - component: {fileID: 3795134135857352799}
+  m_Layer: 0
+  m_Name: GridSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5534801692906830096
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676041121772867941}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.38794726, y: 0.12998305, z: -0.02813724}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2317451034576969513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676041121772867941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 257bb17bbb28405468fb61e22de242d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPrefabs:
+  - {fileID: 4313810961233702181, guid: 8f7831a0032f6624eb25c114939bc3d3, type: 3}
+  - {fileID: 4313810961233702181, guid: 1f2a2451134955441add3a70813655fa, type: 3}
+  - {fileID: 4313810961233702181, guid: ddc357ec2d555434299d523e835f39c8, type: 3}
+  - {fileID: 4313810961233702181, guid: 1aef0081badce334a8f3f88893940965, type: 3}
+  - {fileID: 4313810961233702181, guid: 12e432432a091ad4d8027f92d3e85aa6, type: 3}
+  - {fileID: 4313810961233702181, guid: ef11bf4dd838ade49b92fa21368c6ab9, type: 3}
+  - {fileID: 4313810961233702181, guid: fda590a93eeb48f4a9263968c30b2ad5, type: 3}
+  - {fileID: 4313810961233702181, guid: 04d06507f786fcc439ac5713413fb0f6, type: 3}
+  grid: {fileID: 3795134135857352799}
+  targetHealthCurve: {fileID: 0}
+  healthRandomUpperPercent: 0.1
+  healthRandomLowerPercent: 0.2
+  minTargetsPerRow: 2
+  maxTargetsPerRow: 4
+  targetScale: 0.5
+  offsetXRange: 0.1
+  offsetYRange: 0.1
+  rotationZRange: 0.03
+  maxHealthClamp: 60
+  powerUpManager: {fileID: 0}
+--- !u!114 &3795134135857352799
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 676041121772867941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f92129430f0369c46908b4c992d46cf4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rows: 10
+  columns: 5
+  cellWidth: 0.75
+  cellHeight: 0.8
+  gridOrigin: {x: 0, y: 3.5}
+  showGridGizmos: 1

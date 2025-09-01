@@ -9857,6 +9857,7 @@ GameObject:
   - component: {fileID: 8897784278200671190}
   - component: {fileID: 7217119290920716025}
   - component: {fileID: 3133298277591713707}
+  - component: {fileID: -3292548891251276275}
   m_Layer: 0
   m_Name: BeamFrostPUtarget
   m_TagString: PowerUp
@@ -9944,29 +9945,26 @@ MonoBehaviour:
   beamLineRendererPrefab: {fileID: 7736653140990091135, guid: 13fda314784dbfd43bc17d6b0627d92a, type: 3}
   beamStartPrefab: {fileID: 134198, guid: f14992af264fc284db1d246f979ea63f, type: 3}
   beamEndPrefab: {fileID: 113256, guid: 01b32c1e97b390f4b82f26b2d4a847ee, type: 3}
-  beamStartPos: {fileID: 0}
-  autoFindNamedTargets: 1
-  beamTargets: []
-  baseWidth: -1
-  textureScrollSpeed: 0
-  textureLengthScale: 1
-  widthMultiplier: 1.5
-  pulseSpeed: 1
-  spawnOnStart: 0
-  drawGizmos: 1
-  offshootUp: {fileID: 2461811516546395711, guid: 20d1a4143443c124e8c9165bd3b25eb0, type: 3}
-  offshootDown: {fileID: 892653328638721543, guid: 8bc4ac840c28e2745ad562d359f881bc, type: 3}
-  offshootLeft: {fileID: 4486563475632222643, guid: e79218ee50a4075459b1c97f96115d16, type: 3}
-  offshootRight: {fileID: 2960296254115091592, guid: b9a77c463ca71f644aea5f2dd5c0bc36, type: 3}
-  manageLegacyBeamTargetEmpties: 0
-  legacyBeamTargetUp: {fileID: 0}
-  legacyBeamTargetDown: {fileID: 0}
-  legacyBeamTargetLeft: {fileID: 0}
-  legacyBeamTargetRight: {fileID: 0}
-  gridManager: {fileID: 0}
-  effectDuration: 4
-  awardByHealth: 1
-  defaultTargetHealth: 1
+  effectDuration: 1
+  beamTargets:
+  - {fileID: 3106085708294918458, guid: f516c97ef975b374e84ad1d5ff6a8229, type: 3}
+  - {fileID: 2356907035785430298, guid: a11b5a78f660ef7439a6e1db4dbc7cea, type: 3}
+  - {fileID: 4988309732293447125, guid: 940c184372788f84db8429468206bd6d, type: 3}
+  - {fileID: 6096550315696554221, guid: d7ed47716691ee44b901226f198077f6, type: 3}
+  offScreenOffset: 10
+  powerUpData: {fileID: 0}
+--- !u!210 &-3292548891251276275
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329726899166178089}
+  m_Enabled: 1
+  m_SortingLayerID: 130303049
+  m_SortingLayer: 2
+  m_SortingOrder: 999
+  m_SortAtRoot: 0
 --- !u!1 &7842483927478078189
 GameObject:
   m_ObjectHideFlags: 0

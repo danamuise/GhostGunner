@@ -9,7 +9,7 @@ public class ProximityBombPU : MonoBehaviour
     public LayerMask targetLayer;
 
     [Header("VFX/SFX")]
-    public PowerUpData powerUpData;
+    
 
     private TargetGridManager gridManager;
 

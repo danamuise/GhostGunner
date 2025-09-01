@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8336265223606118552}
   - component: {fileID: 3842069730231845858}
+  - component: {fileID: 68179301858587006}
   m_Layer: 0
   m_Name: FrostBeamMulti
   m_TagString: Untagged
@@ -91,7 +92,7 @@ LineRenderer:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 1
+        value: 0.22142869
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -99,8 +100,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 1
-        value: 1
+        time: 0.9059561
+        value: 0.22142869
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -151,3 +152,15 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 0
+--- !u!210 &68179301858587006
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7736653140990091135}
+  m_Enabled: 1
+  m_SortingLayerID: 130303049
+  m_SortingLayer: 2
+  m_SortingOrder: 900
+  m_SortAtRoot: 0

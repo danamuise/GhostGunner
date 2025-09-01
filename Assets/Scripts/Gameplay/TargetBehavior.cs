@@ -7,7 +7,7 @@ using System.Collections;
 /// - Bullet: +1 per hit (legacy behavior)
 /// - ProximityBomb / FireSW: on kill, +remaining HP as bonus
 /// </summary>
-public enum DamageSource { Bullet, ProximityBomb, FireSW, Other }
+public enum DamageSource { Bullet, ProximityBomb, FireSW, BeamPowerUp, Other }
 
 public class TargetBehavior : MonoBehaviour
 {

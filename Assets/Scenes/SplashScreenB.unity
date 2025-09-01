@@ -150,7 +150,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mockScore: 1000
   mockHealth: 100
-  mockBulletCount: 20
+  mockBulletCount: 19
   level: 1
   autoStart: 1
 --- !u!4 &20397001

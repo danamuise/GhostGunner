@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 19931092}
   - component: {fileID: 19857744}
   - component: {fileID: 8276884}
+  - component: {fileID: -2096458505814009196}
   m_Layer: 0
   m_Name: FrostBeamImpactMulti
   m_TagString: Untagged
@@ -4933,6 +4934,18 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!210 &-2096458505814009196
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113256}
+  m_Enabled: 1
+  m_SortingLayerID: 130303049
+  m_SortingLayer: 2
+  m_SortingOrder: 999
+  m_SortAtRoot: 0
 --- !u!1 &116198
 GameObject:
   m_ObjectHideFlags: 0
