@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: soundLibrary.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: soundLibrary.Array.data[14].clip
@@ -1064,6 +1064,14 @@ PrefabInstance:
     - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: soundLibrary.Array.data[21].name
       value: FireSequenceSFX
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: soundLibrary.Array.data[22].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 757c651087dee3a40b42f8252a40a47c, type: 3}
+    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: soundLibrary.Array.data[22].name
+      value: analog-lazer
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

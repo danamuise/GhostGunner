@@ -72,7 +72,7 @@ namespace MagicArsenal
             {
                 // Log the current world position
                 Vector3 worldPosition = transform.position;
-
+                
                 // Ensure gridManager is not null
                 if (gridManager == null)
                 {
@@ -90,8 +90,18 @@ namespace MagicArsenal
                     Debug.LogWarning($"[BeamPUvfx] BeamPUtarget hit at World Position: {worldPosition}, but grid coordinates could not be determined.");
                 }
 
-                // Capture the position of the power-up target
-                beamStartPos = transform.position;
+                // Instantiate the BeamStartPrefab at the worldPosition
+                if (beamStartPrefab != null)
+                {
+                    GameObject beamStart = Instantiate(beamStartPrefab, worldPosition, Quaternion.identity, beamPUParent);
+                    Debug.Log($"[BeamPUvfx] BeamStartPrefab instantiated at {worldPosition}");
+                } else
+                {
+                    Debug.Log($"[BeamPUvfx] BeamStartPrefab not found");
+                }
+
+                    // Capture the position of the power-up target
+                    beamStartPos = transform.position;
 
                 // Determine BeamTargets based on the BeamStartPos
                 InitializeBeamTargets();
@@ -157,6 +167,8 @@ namespace MagicArsenal
         private void SpawnBeams()
         {
             Debug.Log($"[BeamPUvfx] SpawnBeams called. Total beamTargets: {beamTargets.Count}");
+
+            gameObject.SetActive(false);
 
             // Spawn beams to each target
             foreach (GameObject target in beamTargets)

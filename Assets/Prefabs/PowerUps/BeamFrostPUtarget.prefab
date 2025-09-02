@@ -9952,7 +9952,7 @@ MonoBehaviour:
   - {fileID: 4988309732293447125, guid: 940c184372788f84db8429468206bd6d, type: 3}
   - {fileID: 6096550315696554221, guid: d7ed47716691ee44b901226f198077f6, type: 3}
   offScreenOffset: 10
-  powerUpData: {fileID: 0}
+  powerUpData: {fileID: 11400000, guid: 771ad35c6d3dcd644a25452104b0f632, type: 2}
 --- !u!210 &-3292548891251276275
 SortingGroup:
   m_ObjectHideFlags: 0

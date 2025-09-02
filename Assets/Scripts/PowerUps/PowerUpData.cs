@@ -3,7 +3,7 @@
 
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "PowerUpData", menuName = "GhostGunn/PowerUp")]
+[CreateAssetMenu(fileName = "PowerUpData", menuName = "GhostGunn/PowerUpData")]
 public class PowerUpData : ScriptableObject
 {
     [Header("Core Settings")]

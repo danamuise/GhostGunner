@@ -7,10 +7,10 @@ public class ProximityBombPU : MonoBehaviour
     [Header("Detection (optional/legacy)")]
     public float checkRadius = 0.1f;
     public LayerMask targetLayer;
+    public PowerUpData powerUpData;
 
     [Header("VFX/SFX")]
-    
-
+   
     private TargetGridManager gridManager;
 
     [System.Obsolete]

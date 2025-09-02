@@ -44103,6 +44103,8 @@ MonoBehaviour:
   gameManager: {fileID: 81249631}
   bulletPool: {fileID: 1824429564}
   powerUps:
+  - {fileID: 11400000, guid: 4ba340b953a9c0c439ea62de88a2f23a, type: 2}
+  - {fileID: 11400000, guid: 8374684ae25bcfc479276b501be673fa, type: 2}
   - {fileID: 11400000, guid: 771ad35c6d3dcd644a25452104b0f632, type: 2}
   vfxOffset: {x: 0, y: 0.9}
 --- !u!4 &299981599
@@ -44128,7 +44130,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 299981597}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
