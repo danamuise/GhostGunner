@@ -6,7 +6,7 @@ public class SWIconTarget : MonoBehaviour
 {
     [Header("Icon Setup")]
     public SpecialWeaponType type;           // Set in Inspector (Nuke, Fire, etc.)
-    public GameObject triggerEffectObject;   // e.g., NukeSequence / FireSequence prefab in the scene (disabled)
+    public GameObject triggerEffectObject;   // e.g., NukeSequence ... FireSequence prefab in the scene (disabled)
 
     [Header("Behavior")]
     public bool destroyIconAfterTrigger = true;
