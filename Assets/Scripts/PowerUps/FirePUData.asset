@@ -16,6 +16,8 @@ MonoBehaviour:
   powerUpPrefab: {fileID: 7329726899166178089, guid: 80892881a1b4d1f4ea7ad8b8c9bd0d11, type: 3}
   priority: 11
   cooldown: 0
+  isSpecialWeapon: 1
+  requiredLevel: 2
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: NukePUhit
   probability: 1
@@ -25,5 +27,4 @@ MonoBehaviour:
   stopAfterMaxBullets: 0
   requiresOddMove: 0
   requiredScore: 3000
-  requiredLevel: 0
   spawnAfterMove: 0

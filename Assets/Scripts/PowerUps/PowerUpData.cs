@@ -1,4 +1,4 @@
-// 8/27/2025 AI-Tag
+// 9/3/2025 AI-Tag
 // This was created with the help of Assistant, a Unity Artificial Intelligence product.
 
 using UnityEngine;
@@ -18,6 +18,13 @@ public class PowerUpData : ScriptableObject
 
     [Tooltip("The minimum number of moves required between spawns of this power-up.")]
     public int cooldown = 1;
+
+    [Header("Special Weapon Settings")]
+    [Tooltip("If true, this power-up is a special weapon.")]
+    public bool isSpecialWeapon;
+
+    [Tooltip("The level at which this special weapon can spawn.")]
+    public int requiredLevel = 0;
 
     [Header("Pickup Effects")]
     [Tooltip("Optional visual effect prefab to spawn when the power-up is collected.")]
@@ -50,9 +57,6 @@ public class PowerUpData : ScriptableObject
     [Tooltip("The minimum score the player must have for this power-up to spawn.")]
     public int requiredScore = 0;
 
-    [Tooltip("The minimum level the player must reach for this power-up to spawn.")]
-    public int requiredLevel = 0;
-
     [Tooltip("The move number after which this power-up becomes eligible to spawn.")]
     public int spawnAfterMove = 0;
 
@@ -68,7 +72,6 @@ public class PowerUpData : ScriptableObject
         timesUsed = 0;
     }
 
-    // Determines whether this power-up can be used on the current move
     public bool IsAvailable(int currentMove)
     {
         if (timesUsed >= 20) return false;
@@ -99,8 +102,8 @@ public class PowerUpData : ScriptableObject
         // Check score requirement
         if (currentScore < requiredScore) return false;
 
-        // Check level requirement
-        if (currentLevel < requiredLevel) return false;
+        // Check level requirement (0 means any level)
+        if (requiredLevel != 0 && currentLevel < requiredLevel) return false;
 
         // Check if max bullets are required
         if (requiresMaxBullets && maxBullets != enabledBullets) return false;
@@ -114,9 +117,5 @@ public class PowerUpData : ScriptableObject
         return true;
     }
 
-    public void MarkAsUsed(int currentMove)
-    {
-        lastUsedMove = currentMove;
-        timesUsed++;
-    }
+
 }

@@ -1,9 +1,4 @@
-﻿// 8/27/2025 AI-Tag
-// This was created with the help of Assistant, a Unity Artificial Intelligence product.
-
-// 8/26/2025 AI-Tag
-// This was created with the help of Assistant, a Unity Artificial Intelligence product.
-
+﻿
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,7 +20,6 @@ public class PowerUpManager : MonoBehaviour
     private bool hasSpawnedPowerUpThisMove = false; // Tracks if a power-up has already spawned this move
 
     private PowerUpData lastAlternatedPowerUp = null;
-
 
     private void Awake()
     {
@@ -92,17 +86,36 @@ public class PowerUpManager : MonoBehaviour
             // Check if the power-up is eligible
             if (powerUp.IsEligible(move, bulletPool.GetTotalBulletCount(), bulletPool.GetEnabledBulletCount(), gameManager.GetScore(), GameState.Instance.LevelNumber))
             {
-                selectedPowerUp = powerUp;
-
-                // Handle alternation logic
-                if (powerUp.priority == lastAlternatedPowerUp?.priority)
+                // Special weapon logic
+                if (powerUp.powerUpName == "NukePU" && GameState.Instance.GetNukeHasBeenUsed())
                 {
-                    continue; // Skip if this power-up alternates and was the last one used
+                    continue; // Skip if the Nuke has already been used
                 }
 
+                if (powerUp.powerUpName == "FirePU" && GameState.Instance.GetFireHasBeenUsed())
+                {
+                    continue; // Skip if the Fire has already been used
+                }
+
+                selectedPowerUp = powerUp;
+
+                if (powerUp.priority == lastAlternatedPowerUp?.priority)
+                {
+                    continue; //skip if this powerUp alternates and was the last one used
+                }
                 lastAlternatedPowerUp = powerUp;
                 break; // Stop at the first eligible power-up
             }
+        }
+
+        // Mark special weapons as used
+        if (selectedPowerUp != null && selectedPowerUp.powerUpName == "NukePU")
+        {
+            GameState.Instance.SetNukeHasBeenUsed(true);
+        }
+        else if (selectedPowerUp != null && selectedPowerUp.powerUpName == "FirePU")
+        {
+            GameState.Instance.SetFireHasBeenUsed(true);
         }
 
         return selectedPowerUp;
@@ -156,5 +169,14 @@ public class PowerUpManager : MonoBehaviour
         marker.name = "💥 VFX Debug Marker";
         Destroy(marker, 2f); // Auto-destroy after 2 seconds
 #endif
+    }
+
+    // Function to reset HasBeenUsed for all power-ups
+    public void ResetHasBeenUsed()
+    {
+        foreach (var powerUp in powerUps)
+        {
+            powerUp.ResetRuntimeState(); // This will reset HasBeenUsed to false
+        }
     }
 }

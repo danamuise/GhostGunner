@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &20397000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -143,15 +143,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20396999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb4e48fa394c4a4e8299c46efb1cd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mockScore: 2990
+  mockScore: 0
   mockHealth: 100
   mockBulletCount: 20
-  level: 2
+  level: 1
   autoStart: 1
 --- !u!4 &20397001
 Transform:
@@ -1250,6 +1250,10 @@ PrefabInstance:
     - target: {fileID: 3484144675269225601, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
       propertyPath: m_Name
       value: iphoneFrame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3484144675269225601, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8369914044424932315, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
       propertyPath: m_Enabled

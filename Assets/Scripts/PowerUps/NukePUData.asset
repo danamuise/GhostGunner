@@ -14,8 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpName: NukePU
   powerUpPrefab: {fileID: 7329726899166178089, guid: b0462dfeefad7614bbe2c442fae6b7c7, type: 3}
-  priority: 11
+  priority: 50
   cooldown: 0
+  isSpecialWeapon: 1
+  requiredLevel: 1
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: NukePUhit
   probability: 1
@@ -24,6 +26,5 @@ MonoBehaviour:
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
   requiresOddMove: 0
-  requiredScore: 2000
-  requiredLevel: 1
+  requiredScore: 1000
   spawnAfterMove: 0

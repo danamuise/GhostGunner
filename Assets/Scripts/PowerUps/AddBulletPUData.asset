@@ -16,6 +16,8 @@ MonoBehaviour:
   powerUpPrefab: {fileID: 7329726899166178089, guid: df1c9451c1f3f264abb4d3bd18179b23, type: 3}
   priority: 10
   cooldown: 0
+  isSpecialWeapon: 0
+  requiredLevel: 1
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: PUCollect
   probability: 1
@@ -25,5 +27,4 @@ MonoBehaviour:
   stopAfterMaxBullets: 1
   requiresOddMove: 0
   requiredScore: 0
-  requiredLevel: 0
   spawnAfterMove: 4

@@ -22,6 +22,30 @@ public class GameState : MonoBehaviour
 
     public int[] HighScores { get; private set; } = new int[5];
 
+    // Special weapon usage tracking
+    private bool nukeHasBeenUsed = false;
+    private bool fireHasBeenUsed = false;
+
+    public bool GetNukeHasBeenUsed()
+    {
+        return nukeHasBeenUsed;
+    }
+
+    public void SetNukeHasBeenUsed(bool value)
+    {
+        nukeHasBeenUsed = value;
+    }
+
+    public bool GetFireHasBeenUsed()
+    {
+        return fireHasBeenUsed;
+    }
+
+    public void SetFireHasBeenUsed(bool value)
+    {
+        fireHasBeenUsed = value;
+    }
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
