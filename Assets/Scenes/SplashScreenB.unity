@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &20397000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,9 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mockScore: 0
-  mockHealth: 100
+  mockHealth: 5
   mockBulletCount: 20
-  level: 1
+  level: 2
   autoStart: 1
 --- !u!4 &20397001
 Transform:
@@ -999,7 +999,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: soundLibrary.Array.size
-      value: 23
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: soundLibrary.Array.data[14].clip
@@ -1072,6 +1072,22 @@ PrefabInstance:
     - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: soundLibrary.Array.data[22].name
       value: analog-lazer
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: soundLibrary.Array.data[23].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 2b06b8b758b1c0a4398157eae225dc2b, type: 3}
+    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: soundLibrary.Array.data[23].name
+      value: beamLifePU
+      objectReference: {fileID: 0}
+    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: soundLibrary.Array.data[24].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 044eb240a3869fd45a62de57b30d163d, type: 3}
+    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: soundLibrary.Array.data[24].name
+      value: lightningLoop2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

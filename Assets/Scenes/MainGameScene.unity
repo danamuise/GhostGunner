@@ -44102,10 +44102,8 @@ MonoBehaviour:
   gameManager: {fileID: 81249631}
   bulletPool: {fileID: 1824429564}
   powerUps:
-  - {fileID: 11400000, guid: 4ba340b953a9c0c439ea62de88a2f23a, type: 2}
-  - {fileID: 11400000, guid: 8374684ae25bcfc479276b501be673fa, type: 2}
-  - {fileID: 11400000, guid: 771ad35c6d3dcd644a25452104b0f632, type: 2}
-  - {fileID: 11400000, guid: e01a7cddd95b85249ad821c8d47dd4ad, type: 2}
+  - {fileID: 11400000, guid: 3da40f1d537ac6c4f96b7eb97a405f97, type: 2}
+  - {fileID: 11400000, guid: 629ea238950f72a43a0e24100b0fad36, type: 2}
   vfxOffset: {x: 0, y: 0.9}
 --- !u!4 &299981599
 Transform:

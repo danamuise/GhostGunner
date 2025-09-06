@@ -26,5 +26,5 @@ MonoBehaviour:
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
   requiresOddMove: 0
-  requiredScore: 1000
+  requiredScore: 2000
   spawnAfterMove: 0

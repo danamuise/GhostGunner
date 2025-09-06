@@ -60,6 +60,9 @@ public class PowerUpData : ScriptableObject
     [Tooltip("The move number after which this power-up becomes eligible to spawn.")]
     public int spawnAfterMove = 0;
 
+    [HideInInspector]
+    public float LastUsedTime = 0f; // Tracks the last time this power-up was used
+
     private int timesUsed = 0;
     private int lastUsedMove = -1000;
 
@@ -116,6 +119,8 @@ public class PowerUpData : ScriptableObject
 
         return true;
     }
+
+
 
 
 }

@@ -242,8 +242,6 @@ namespace MagicArsenal
             Debug.Log($"[BeamPUvfx] No valid target found in direction colStep={colStep}, rowStep={rowStep}");
         }
 
-        // 9/1/2025 AI-Tag
-        // This was created with the help of Assistant, a Unity Artificial Intelligence product.
 
         private void DestroyTargets()
         {

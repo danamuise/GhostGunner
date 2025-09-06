@@ -77,15 +77,26 @@ public class PowerUpManager : MonoBehaviour
         hasSpawnedPowerUpThisMove = true;
     }
 
+
     private PowerUpData SelectPowerUp(int move)
     {
         PowerUpData selectedPowerUp = null;
+        float currentTime = Time.time; // Use Unity's time to track cooldowns
+
+        // Sort power-ups by priority (1 = highest priority, larger numbers = lower priority)
+        powerUps.Sort((a, b) => a.priority.CompareTo(b.priority));
 
         foreach (var powerUp in powerUps)
         {
             // Check if the power-up is eligible
             if (powerUp.IsEligible(move, bulletPool.GetTotalBulletCount(), bulletPool.GetEnabledBulletCount(), gameManager.GetScore(), GameState.Instance.LevelNumber))
             {
+                // Check cooldown
+                if (powerUp.cooldown > 0 && currentTime < powerUp.LastUsedTime + powerUp.cooldown)
+                {
+                    continue; // Skip if the power-up is still on cooldown
+                }
+
                 // Special weapon logic
                 if (powerUp.powerUpName == "NukePU" && GameState.Instance.GetNukeHasBeenUsed())
                 {
@@ -97,13 +108,16 @@ public class PowerUpManager : MonoBehaviour
                     continue; // Skip if the Fire has already been used
                 }
 
-                selectedPowerUp = powerUp;
-
-                if (powerUp.priority == lastAlternatedPowerUp?.priority)
+                // Ensure alternation based on alternateWithPrevious
+                if (powerUp.alternateWithPrevious && lastAlternatedPowerUp == powerUp)
                 {
-                    continue; //skip if this powerUp alternates and was the last one used
+                    continue; // Skip if this power-up alternates and was the last one used
                 }
-                lastAlternatedPowerUp = powerUp;
+
+                // Select this power-up
+                selectedPowerUp = powerUp;
+                lastAlternatedPowerUp = powerUp; // Update the last alternated power-up
+                powerUp.LastUsedTime = currentTime; // Update the last used time for cooldown tracking
                 break; // Stop at the first eligible power-up
             }
         }
