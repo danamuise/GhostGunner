@@ -12,7 +12,7 @@ public class AddBulletPowerUp : MonoBehaviour
         }
     }
 
-    [System.Obsolete]
+        [System.Obsolete]
     public void Activate()
     {
         BulletPool bulletPool = FindObjectOfType<BulletPool>();

@@ -151,7 +151,7 @@ MonoBehaviour:
   mockScore: 0
   mockHealth: 5
   mockBulletCount: 20
-  level: 2
+  level: 1
   autoStart: 1
 --- !u!4 &20397001
 Transform:

@@ -1,28 +1,47 @@
-﻿
+﻿// 9/22/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+// 9/22/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PowerUpManager : MonoBehaviour
 {
     [Header("References")]
-    public TargetGridManager gridTargetManager;      // Assign in Inspector
-    public Transform powerUpParent;                 // Container for all power-ups
-    [SerializeField] private GameManager gameManager; // Assign in Inspector
+    [Tooltip("The TargetGridManager responsible for managing the grid where power-ups spawn.")]
+    public TargetGridManager gridTargetManager;
+
+    [Tooltip("The parent transform under which all spawned power-ups will be organized.")]
+    public Transform powerUpParent;
+
+    [Tooltip("The GameManager instance to track game state and score.")]
+    [SerializeField] private GameManager gameManager;
+
+    [Tooltip("The BulletPool instance to track bullet-related conditions.")]
     [SerializeField] private BulletPool bulletPool;
 
     [Header("Power-Ups")]
-    public List<PowerUpData> powerUps; // List of power-up ScriptableObjects
+    [Tooltip("List of all power-up ScriptableObjects available for spawning.")]
+    public List<PowerUpData> powerUps;
 
     [Header("VFX / SFX Settings")]
+    [Tooltip("Offset for the visual effects when a power-up is picked up.")]
     public Vector2 vfxOffset = new Vector2(0f, 0.9f);
 
     private int totalTargetSpawnCycles = 0;
-    private bool hasSpawnedPowerUpThisMove = false; // Tracks if a power-up has already spawned this move
 
+    [Tooltip("Tracks if a power-up has already been spawned during the current move.")]
+    private bool hasSpawnedPowerUpThisMove = false;
+
+    [Tooltip("Tracks the last alternated power-up to ensure alternation logic.")]
     private PowerUpData lastAlternatedPowerUp = null;
 
     private void Awake()
     {
+        ResetHasBeenUsed();
+
         if (gridTargetManager == null)
         {
             Debug.LogError("[PowerUpManager] TargetGridManager is not assigned!");
@@ -77,11 +96,16 @@ public class PowerUpManager : MonoBehaviour
         hasSpawnedPowerUpThisMove = true;
     }
 
+    // 9/23/2025 AI-Tag
+    // This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+    // 9/23/2025 AI-Tag
+    // This was created with the help of Assistant, a Unity Artificial Intelligence product.
 
     private PowerUpData SelectPowerUp(int move)
     {
+        Debug.Log($"[PowerUpManager] Current Level: {GameState.Instance.CurrentLevel}");
         PowerUpData selectedPowerUp = null;
-        float currentTime = Time.time; // Use Unity's time to track cooldowns
 
         // Sort power-ups by priority (1 = highest priority, larger numbers = lower priority)
         powerUps.Sort((a, b) => a.priority.CompareTo(b.priority));
@@ -91,12 +115,6 @@ public class PowerUpManager : MonoBehaviour
             // Check if the power-up is eligible
             if (powerUp.IsEligible(move, bulletPool.GetTotalBulletCount(), bulletPool.GetEnabledBulletCount(), gameManager.GetScore(), GameState.Instance.LevelNumber))
             {
-                // Check cooldown
-                if (powerUp.cooldown > 0 && currentTime < powerUp.LastUsedTime + powerUp.cooldown)
-                {
-                    continue; // Skip if the power-up is still on cooldown
-                }
-
                 // Special weapon logic
                 if (powerUp.powerUpName == "NukePU" && GameState.Instance.GetNukeHasBeenUsed())
                 {
@@ -117,8 +135,16 @@ public class PowerUpManager : MonoBehaviour
                 // Select this power-up
                 selectedPowerUp = powerUp;
                 lastAlternatedPowerUp = powerUp; // Update the last alternated power-up
-                powerUp.LastUsedTime = currentTime; // Update the last used time for cooldown tracking
+
+                // Reset cooldown for the selected power-up
+                powerUp.elapsedMoves = powerUp.cooldown;
+
+                Debug.Log($"[PowerUpManager] {powerUp.powerUpName} selected at move {move}. Cooldown reset to {powerUp.cooldown}.");
                 break; // Stop at the first eligible power-up
+            }
+            else
+            {
+                Debug.Log($"[PowerUpManager] {powerUp.powerUpName} is NOT eligible at move {move}. ElapsedMoves: {powerUp.elapsedMoves}");
             }
         }
 
