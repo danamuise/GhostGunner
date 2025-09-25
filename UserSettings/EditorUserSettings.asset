@@ -5,6 +5,9 @@ EditorUserSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 4
   m_ConfigSettings:
+    GraphicsSettingsInspector_UserSettings:
+      value: 18134705175a055722080a3115371d4a0d55006876786860616b0471b8b07a68ffab74f9ee2a3a30300cea1a11320d0beb1a0c25f7060f494b4cc80018eb09361fc211cb1f862d19c51d19dcc413d6ade0d8ddfcddf9f4d9d29195fcfde6ebeae6f0a9c9afa6f8c5b89ff7a1aacececac4eba4d7c9d28bda
+      flags: 0
     RecentlyUsedSceneGuid-0:
       value: 57010502010c580d0e5c5973432259444e154128787a206474284b62e0b76160
       flags: 0
@@ -15,25 +18,25 @@ EditorUserSettings:
       value: 550951535c010c5f5a57582648250d4414164f7d2f2d276629784c65b4b8316a
       flags: 0
     RecentlyUsedSceneGuid-3:
-      value: 5503510306045909545d0977427a0e44174e49287a2977627f2d4a32e1e6623c
-      flags: 0
-    RecentlyUsedSceneGuid-4:
       value: 0101035404005b5d590b0d7245745c4413161a2e7b7e7135787a4f65e4e56039
       flags: 0
-    RecentlyUsedSceneGuid-5:
+    RecentlyUsedSceneGuid-4:
       value: 010657505350510a0e0f59244225094440164828787d25317a7b1e62b1e1366c
       flags: 0
-    RecentlyUsedSceneGuid-6:
+    RecentlyUsedSceneGuid-5:
       value: 0008505e550c510c545a5f2342760e444f151b2f2e787765787d4b32b4b13168
       flags: 0
-    RecentlyUsedSceneGuid-7:
+    RecentlyUsedSceneGuid-6:
       value: 01050c5604035f5a5e0f087b15735c4443164f7a287827347a7e1b61e6b8353c
       flags: 0
+    RecentlyUsedSceneGuid-7:
+      value: 5503510306045909545d0977427a0e44174e49287a2977627f2d4a32e1e6623c
+      flags: 0
     RecentlyUsedSceneGuid-8:
-      value: 060307045c0d08095f5a557547715944404f487c7d2e70687f784531e6e36069
+      value: 5709055657500f5a0e0c5b2647730a44134e487b282c7032292d1866e0b0303c
       flags: 0
     RecentlyUsedSceneGuid-9:
-      value: 5709055657500f5a0e0c5b2647730a44134e487b282c7032292d1866e0b0303c
+      value: 060307045c0d08095f5a557547715944404f487c7d2e70687f784531e6e36069
       flags: 0
     UnityEditor.ShaderGraph.Blackboard:
       value: 18135939215a0a5004000b0e15254b524c030a3f2964643d120d1230e9e93a3fd6e826abbd2e2d293c4ead313b08042de6030a0afa240c0d020be94c4ba75e435d8715fa32c70d15d11612dacc11fee5d3c5d1fe9ab1be968e93e2ffcbc3e7e2f0b3ffe0e8b0be9af8ffaeffff8e85dd8390e3949c8899daa7

@@ -44,13 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a778c58fb0baf840860e163c292ea1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundUI: {fileID: -8653719598885068355, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-  moveUIoutButton: {fileID: 6803244797375503701, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-  moveUIinButton: {fileID: -2446894718060042417, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-  soundOffButton: {fileID: 4069514448366513052, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-  soundOnButton: {fileID: 2472733510164913061, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-  musicOnButton: {fileID: 2472733510164913061, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-  musicOffButton: {fileID: 7152835125427472410, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
   soundLibrary:
   - name: BulletShoot
     clip: {fileID: 8300000, guid: e77648cf6951dbb4d90a0ac4f841ef2a, type: 3}
@@ -94,6 +87,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: a7629b555b17d5f478e2f55f6590de85, type: 3}
   - name: buttonClick0
     clip: {fileID: 8300000, guid: df6e68f8f9471664bbcd83331e2a3dea, type: 3}
+  - name: throwingStar
+    clip: {fileID: 8300000, guid: 0d49c5529e19a724cbf0715bbf8c1407, type: 3}
   musicLibrary:
   - name: mainBGmusic
     clip: {fileID: 8300000, guid: 90b1bd647c6c59c489e60caa4d377d08, type: 3}

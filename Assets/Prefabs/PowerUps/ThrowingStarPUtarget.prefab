@@ -9856,8 +9856,8 @@ GameObject:
   - component: {fileID: 719882935562587007}
   - component: {fileID: 8897784278200671190}
   - component: {fileID: 7217119290920716025}
-  - component: {fileID: 3133298277591713707}
   - component: {fileID: -3292548891251276275}
+  - component: {fileID: -7053318302724226072}
   m_Layer: 0
   m_Name: ThrowingStarPUtarget
   m_TagString: PowerUp
@@ -9930,29 +9930,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18438d49ab702b4458990d09a093ca56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3133298277591713707
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7329726899166178089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87e12114d5ba8514e8f36b73d134f68d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::MagicArsenal.BeamPUvfx
-  beamLineRendererPrefab: {fileID: 168570, guid: 13d778ebbfff82149bdc5ed15fbda9c9, type: 3}
-  beamStartPrefab: {fileID: 146808, guid: 3b44f00d62229884a99c8bd5c5a1a247, type: 3}
-  beamEndPrefab: {fileID: 182458, guid: 192a807de5bc83c498bf94f94e6f6b75, type: 3}
-  effectDuration: 1
-  beamTargets:
-  - {fileID: 3106085708294918458, guid: f516c97ef975b374e84ad1d5ff6a8229, type: 3}
-  - {fileID: 2356907035785430298, guid: a11b5a78f660ef7439a6e1db4dbc7cea, type: 3}
-  - {fileID: 4988309732293447125, guid: 940c184372788f84db8429468206bd6d, type: 3}
-  - {fileID: 6096550315696554221, guid: d7ed47716691ee44b901226f198077f6, type: 3}
-  offScreenOffset: 10
-  powerUpData: {fileID: 11400000, guid: 8493c96a309530848882bf9353a63c3e, type: 2}
 --- !u!210 &-3292548891251276275
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -9965,6 +9942,20 @@ SortingGroup:
   m_SortingLayer: 2
   m_SortingOrder: 999
   m_SortAtRoot: 0
+--- !u!114 &-7053318302724226072
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7329726899166178089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4681978c1c9eab46bf41f7a600b8345, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ThrowingStarPU
+  powerUpData: {fileID: 11400000, guid: 8493c96a309530848882bf9353a63c3e, type: 2}
+  lifetime: 5
 --- !u!1 &7842483927478078189
 GameObject:
   m_ObjectHideFlags: 0
