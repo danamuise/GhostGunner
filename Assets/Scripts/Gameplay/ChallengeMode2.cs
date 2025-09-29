@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class ChallengeMode1 : MonoBehaviour
+public class ChallengeMode2 : MonoBehaviour
 {
     [Header("Scene Objects")]
     [SerializeField] private GameObject ghost;
@@ -18,10 +18,7 @@ public class ChallengeMode1 : MonoBehaviour
     [SerializeField] private GameObject timerObject;
     [SerializeField] private GameObject timeBar;
     [SerializeField] private Button btn_nextLevel;
-    [SerializeField] private GameObject BonusPowerUps;
-    [SerializeField] private GameObject PowerUp1;
-    [SerializeField] private GameObject PowerUp2;
-    [SerializeField] private GameObject PowerUp3;
+    [SerializeField] private GameObject firePUicon;
 
     [Header("Text Objects")]
     [SerializeField] private TextMeshProUGUI CL1_textObject;
@@ -352,15 +349,14 @@ public class ChallengeMode1 : MonoBehaviour
         Debug.Log("✅ Challenge Success - Stage 6");
         challengeCompleted = true;
         CleanupAfterChallenge();
-
-        if (BonusPowerUps != null)
+        // enable firePUicon, then animate it to Y=-4.0 from its current position of Y=-5.72
+        if (firePUicon != null)
         {
-            BonusPowerUps.SetActive(true);
-
-            // Start coroutine to enable power-ups with delays
-            StartCoroutine(EnablePowerUpsWithDelay());
+            firePUicon.SetActive(true);
+            Vector3 targetPosition = firePUicon.transform.position;
+            targetPosition.y = -4.0f;
+            StartCoroutine(AnimateFirePU(targetPosition, 0.5f)); // half-second animation
         }
-
         // play the succeed animation on finalPhotos
         GameObject finalPhotos = GameObject.Find("finalPhotos");
         if (finalPhotos != null)
@@ -393,38 +389,10 @@ public class ChallengeMode1 : MonoBehaviour
         }
     }
 
-    private IEnumerator EnablePowerUpsWithDelay()
-    {
-        if (PowerUp1 != null)
-        {
-            PowerUp1.SetActive(true);
-            SFXManager.Instance.Play("bonusPowerUp");
-            Debug.Log("⚡ PowerUp1 enabled");
-
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
-        if (PowerUp2 != null)
-        {
-            PowerUp2.SetActive(true);
-            SFXManager.Instance.Play("bonusPowerUp");
-            Debug.Log("⚡ PowerUp2 enabled");
-        }
-
-        yield return new WaitForSeconds(0.5f);
-
-        if (PowerUp3 != null)
-        {
-            PowerUp3.SetActive(true);
-            SFXManager.Instance.Play("bonusPowerUp");
-            Debug.Log("⚡ PowerUp3 enabled");
-        }
-    }
 
     public void Stage7sequence()
     {
-        
+
         Debug.Log("❌ Challenge Failed - Stage 7");
         CleanupAfterChallenge();
 
@@ -444,6 +412,19 @@ public class ChallengeMode1 : MonoBehaviour
         }
     }
 
+    // coroutine to animate the firePUicon Y position smoothly
+    private IEnumerator AnimateFirePU(Vector3 targetPos, float duration)
+    {
+        Vector3 startPos = firePUicon.transform.position;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            firePUicon.transform.position = Vector3.Lerp(startPos, targetPos, elapsed / duration);
+            yield return null;
+        }
+        firePUicon.transform.position = targetPos;
+    }
 
 
     // -------------------- UTILS --------------------

@@ -1,3 +1,11 @@
+// 9/25/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+// 9/25/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+// 9/24/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
 
 using UnityEngine;
 
@@ -24,18 +32,29 @@ public class ThrowingStarMiniBullet : MonoBehaviour
             TargetBehavior tb = collision.gameObject.GetComponentInParent<TargetBehavior>();
             if (tb != null)
             {
-                tb.TakeDamage(1);
-                Debug.Log($"{name} | Ghost Mode hit: {collision.gameObject.name} – health reduced");
-
-                // Instantiate the HitParticles prefab at the collision point
-                if (hitParticlesPrefab != null)
+                int hp = tb.GetCurrentHealth();
+                if (hp > 0)
                 {
-                    Instantiate(hitParticlesPrefab, transform.position, Quaternion.identity);
+                    // Apply all damage to destroy the target and award score
+                    tb.ApplyDamage(hp, DamageSource.ProximityBomb);
+                    Debug.Log($"{name} | Target destroyed: {collision.gameObject.name} – awarded score");
                 }
-
-                // Destroy miniBullet
-                Destroy(gameObject);
             }
+            else
+            {
+                // No TargetBehavior path (won’t award score)
+                Destroy(collision.gameObject);
+                Debug.Log($"{name} | Target destroyed without awarding score: {collision.gameObject.name}");
+            }
+
+            // Instantiate the HitParticles prefab at the collision point
+            if (hitParticlesPrefab != null)
+            {
+                Instantiate(hitParticlesPrefab, transform.position, Quaternion.identity);
+            }
+
+            // Destroy miniBullet
+            Destroy(gameObject);
         }
     }
 }

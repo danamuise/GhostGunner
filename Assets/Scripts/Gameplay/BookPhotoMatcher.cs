@@ -49,8 +49,8 @@ public class BookPhotoMatcher : MonoBehaviour
             challengeManager.HideWordBalloon1AndText();
         }
 
-        SetPhotoButtonsInteractable(true);
-        EnableBookPhotoButtons();
+        //SetPhotoButtonsInteractable(true);
+        //EnableBookPhotoButtons();
     }
 
 
@@ -320,6 +320,14 @@ public class BookPhotoMatcher : MonoBehaviour
         EnableBookPhotoButtons();
     }
 
+    public void activatePhotoButtons()
+    {
+        Debug.Log("✔️ Book photo buttons renabled after book opens");
+
+
+        SetPhotoButtonsInteractable(true);
+        EnableBookPhotoButtons();
+    }
     IEnumerator HandleIncorrectMatchSequence()
     {
         // 1. Let the "incorrect" marker be visible briefly

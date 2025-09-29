@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpData
   powerUpName: ThrowingStar
   powerUpPrefab: {fileID: 7329726899166178089, guid: 013bab5122ee6a44f9e2e0d775713cbb, type: 3}
-  priority: 1
+  priority: 3
   cooldown: 2
   spawnAfterMove: 0
-  requiredLevel: 0
+  requiredLevel: 1
   requiredScore: 0
   pickupVFX: {fileID: 5258156576701018113, guid: 29d746f375ef3874b8a11576a9e62ee3, type: 3}
   pickupSFX: PUCollect
   probability: 1
   alternateWithPrevious: 0
-  requiresMaxBullets: 0
+  requiresMaxBullets: 1
   stopAfterMaxBullets: 0
   elapsedMoves: 2

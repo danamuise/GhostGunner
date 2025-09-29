@@ -17,12 +17,12 @@ MonoBehaviour:
   priority: 1
   cooldown: 1
   spawnAfterMove: 0
-  requiredLevel: 0
+  requiredLevel: 1
   requiredScore: 0
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: PUCollect
   probability: 1
   alternateWithPrevious: 0
   requiresMaxBullets: 0
-  stopAfterMaxBullets: 0
+  stopAfterMaxBullets: 1
   elapsedMoves: 3

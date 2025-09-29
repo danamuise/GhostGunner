@@ -149,8 +149,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mockScore: 0
-  mockHealth: 1
-  mockBulletCount: 2
+  mockHealth: 30
+  mockBulletCount: 20
   level: 1
   autoStart: 1
 --- !u!4 &20397001
@@ -593,31 +593,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1155096618 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4373345726625825309, guid: c8d68a943f40e77479382f501574572d, type: 3}
-  m_PrefabInstance: {fileID: 1459488847}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1155096621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1155096618}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6943e612f25a6bb45ac24682a2e7c6fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GameSpeedTester
-  gameSpeed: 1
-  applyOnStart: 1
-  persistBetweenScenes: 1
-  autoResetOnDisable: 1
-  hotkeysEnabled: 1
-  step: 0.1
-  showOverlayByDefault: 0
-  pauseAudioWhenPaused: 1
 --- !u!1 &1208040074
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,137 +940,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SFXmanager
       objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundUI
-      value: 
-      objectReference: {fileID: -8653719598885068355, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: musicOnButton
-      value: 
-      objectReference: {fileID: 2472733510164913061, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundOnButton
-      value: 
-      objectReference: {fileID: 3687438599938812024, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: moveUIinButton
-      value: 
-      objectReference: {fileID: -2446894718060042417, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: musicOffButton
-      value: 
-      objectReference: {fileID: 7152835125427472410, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundOffButton
-      value: 
-      objectReference: {fileID: 4069514448366513052, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: moveUIoutButton
-      value: 
-      objectReference: {fileID: 6803244797375503701, guid: 778c250e161831f478a5f3c11beb99e5, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: musicLibrary.Array.size
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.size
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[14].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 9c5ccdf99c446324c8427a5e072c21c2, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[14].name
-      value: SWIconLand
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[15].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 5c9e75e0a79c1084eb35a6ad17a8a65d, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[15].name
-      value: FoundStampSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[16].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 6d21d27c426aa574184526764146fc4b, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[16].name
-      value: buttonBoing
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[17].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0d49c5529e19a724cbf0715bbf8c1407, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[17].name
-      value: correctAnswer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[18].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: a7629b555b17d5f478e2f55f6590de85, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[18].name
-      value: incorrectAnswer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[19].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: df6e68f8f9471664bbcd83331e2a3dea, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[19].name
-      value: buttonClick0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[20].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 14d8e4d6d2a2b5d43ab2113a89e25de7, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[20].name
-      value: NukeSequenceSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[21].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2137475de801eba4893b01ddf89eb461, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[21].name
-      value: FireSequenceSFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[22].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 757c651087dee3a40b42f8252a40a47c, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[22].name
-      value: analog-lazer
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[23].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 2b06b8b758b1c0a4398157eae225dc2b, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[23].name
-      value: beamLifePU
-      objectReference: {fileID: 0}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[24].clip
-      value: 
-      objectReference: {fileID: 8300000, guid: 044eb240a3869fd45a62de57b30d163d, type: 3}
-    - target: {fileID: 5543647455297851351, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      propertyPath: soundLibrary.Array.data[24].name
-      value: lightningLoop2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4373345726625825309, guid: c8d68a943f40e77479382f501574572d, type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 1155096621}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c8d68a943f40e77479382f501574572d, type: 3}
 --- !u!1 &2035170483
 GameObject:

@@ -483,7 +483,7 @@ public class Book : MonoBehaviour
         if (currentPage == 2 && bookPhotoMatcher != null)
         {
             Debug.Log("✅ Enabling photo buttons now that page 2–3 is visible.");
-            bookPhotoMatcher.SetPhotoButtonsInteractable(true);
+            bookPhotoMatcher.activatePhotoButtons();
         }
 
     }

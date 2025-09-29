@@ -1,4 +1,6 @@
 
+
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "PowerUpData", menuName = "GhostGunn/PowerUpData")]
@@ -23,6 +25,9 @@ public class PowerUpData : ScriptableObject
     public bool requiresMaxBullets = false;
     public bool stopAfterMaxBullets = false;
 
+    [Header("Special Settings")]
+    public bool spawnOnlyOnce = false; // New property to track if the power-up should spawn only once
+
     [HideInInspector] public int elapsedMoves = 0;
 
     /// <summary>
@@ -37,8 +42,15 @@ public class PowerUpData : ScriptableObject
     /// <summary>
     /// Determines if the power-up is eligible to spawn based on the current game state.
     /// </summary>
-    public bool IsEligible(int currentMove, int totalBulletCount, int enabledBulletCount, int currentScore, int currentLevel)
+    public bool IsEligible(int currentMove, int totalBulletCount, int enabledBulletCount, int currentScore, int currentLevel, HashSet<string> spawnedOncePowerUps)
     {
+        // Check if the power-up should spawn only once and has already been spawned
+        if (spawnOnlyOnce && spawnedOncePowerUps.Contains(powerUpName))
+        {
+            Debug.Log($"[PowerUpData] {powerUpName} has already been spawned and is marked as spawnOnlyOnce.");
+            return false;
+        }
+
         // Check cooldown
         if (elapsedMoves > 0)
         {
@@ -48,14 +60,10 @@ public class PowerUpData : ScriptableObject
         }
 
         // Check spawn after move
-        if (currentMove < spawnAfterMove)
-        {
-
-            return false;
-        }
+        if (currentMove < spawnAfterMove) return false;
 
         // Check level requirement
-        if (requiredLevel > 0 && currentLevel < requiredLevel) return false;
+        if (requiredLevel > 0 && currentLevel != requiredLevel) return false;
 
         // Check score requirement
         if (requiredScore > 0 && currentScore < requiredScore) return false;

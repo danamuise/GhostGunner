@@ -14,17 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpName: FirePU
   powerUpPrefab: {fileID: 7329726899166178089, guid: 80892881a1b4d1f4ea7ad8b8c9bd0d11, type: 3}
-  priority: 11
+  priority: 1
   cooldown: 0
-  isSpecialWeapon: 1
-  requiredLevel: 2
+  spawnAfterMove: 0
+  requiredLevel: 1
+  requiredScore: 2000
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: NukePUhit
   probability: 1
   alternateWithPrevious: 0
-  spawnInterval: 4
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
-  requiresOddMove: 0
-  requiredScore: 3000
-  spawnAfterMove: 0
+  spawnOnlyOnce: 1
+  elapsedMoves: 0

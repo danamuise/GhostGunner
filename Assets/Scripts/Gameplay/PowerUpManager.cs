@@ -1,8 +1,4 @@
-﻿// 9/22/2025 AI-Tag
-// This was created with the help of Assistant, a Unity Artificial Intelligence product.
-
-// 9/22/2025 AI-Tag
-// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+﻿
 
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,6 +33,9 @@ public class PowerUpManager : MonoBehaviour
 
     [Tooltip("Tracks the last alternated power-up to ensure alternation logic.")]
     private PowerUpData lastAlternatedPowerUp = null;
+
+    // New: Tracks power-ups that should only spawn once
+    private HashSet<string> spawnedOncePowerUps = new HashSet<string>();
 
     private void Awake()
     {
@@ -94,13 +93,13 @@ public class PowerUpManager : MonoBehaviour
 
         // Mark that a power-up has been spawned this move
         hasSpawnedPowerUpThisMove = true;
+
+        // If the power-up is marked as spawnOnlyOnce, track it
+        if (selectedPU.spawnOnlyOnce)
+        {
+            spawnedOncePowerUps.Add(selectedPU.powerUpName);
+        }
     }
-
-    // 9/23/2025 AI-Tag
-    // This was created with the help of Assistant, a Unity Artificial Intelligence product.
-
-    // 9/23/2025 AI-Tag
-    // This was created with the help of Assistant, a Unity Artificial Intelligence product.
 
     private PowerUpData SelectPowerUp(int move)
     {
@@ -113,19 +112,8 @@ public class PowerUpManager : MonoBehaviour
         foreach (var powerUp in powerUps)
         {
             // Check if the power-up is eligible
-            if (powerUp.IsEligible(move, bulletPool.GetTotalBulletCount(), bulletPool.GetEnabledBulletCount(), gameManager.GetScore(), GameState.Instance.LevelNumber))
+            if (powerUp.IsEligible(move, bulletPool.GetTotalBulletCount(), bulletPool.GetEnabledBulletCount(), gameManager.GetScore(), GameState.Instance.LevelNumber, spawnedOncePowerUps))
             {
-                // Special weapon logic
-                if (powerUp.powerUpName == "NukePU" && GameState.Instance.GetNukeHasBeenUsed())
-                {
-                    continue; // Skip if the Nuke has already been used
-                }
-
-                if (powerUp.powerUpName == "FirePU" && GameState.Instance.GetFireHasBeenUsed())
-                {
-                    continue; // Skip if the Fire has already been used
-                }
-
                 // Ensure alternation based on alternateWithPrevious
                 if (powerUp.alternateWithPrevious && lastAlternatedPowerUp == powerUp)
                 {
@@ -146,16 +134,6 @@ public class PowerUpManager : MonoBehaviour
             {
                 Debug.Log($"[PowerUpManager] {powerUp.powerUpName} is NOT eligible at move {move}. ElapsedMoves: {powerUp.elapsedMoves}");
             }
-        }
-
-        // Mark special weapons as used
-        if (selectedPowerUp != null && selectedPowerUp.powerUpName == "NukePU")
-        {
-            GameState.Instance.SetNukeHasBeenUsed(true);
-        }
-        else if (selectedPowerUp != null && selectedPowerUp.powerUpName == "FirePU")
-        {
-            GameState.Instance.SetFireHasBeenUsed(true);
         }
 
         return selectedPowerUp;
@@ -198,25 +176,14 @@ public class PowerUpManager : MonoBehaviour
         }
     }
 
-    [System.Diagnostics.Conditional("UNITY_EDITOR")]
-    private void DrawDebugMarker(Vector3 pos, Color color)
-    {
-#if UNITY_EDITOR
-        GameObject marker = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        marker.transform.position = pos;
-        marker.transform.localScale = Vector3.one * 0.2f;
-        marker.GetComponent<Renderer>().material.color = color;
-        marker.name = "💥 VFX Debug Marker";
-        Destroy(marker, 2f); // Auto-destroy after 2 seconds
-#endif
-    }
-
-    // Function to reset HasBeenUsed for all power-ups
     public void ResetHasBeenUsed()
     {
         foreach (var powerUp in powerUps)
         {
             powerUp.ResetRuntimeState(); // This will reset HasBeenUsed to false
         }
+
+        // Clear the spawnedOncePowerUps tracker
+        spawnedOncePowerUps.Clear();
     }
 }

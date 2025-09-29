@@ -89,6 +89,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: df6e68f8f9471664bbcd83331e2a3dea, type: 3}
   - name: throwingStar
     clip: {fileID: 8300000, guid: 0d49c5529e19a724cbf0715bbf8c1407, type: 3}
+  - name: bonusPowerUp
+    clip: {fileID: 8300000, guid: 1a3f32be88571784ca2bfbd3aaf96a5e, type: 3}
   musicLibrary:
   - name: mainBGmusic
     clip: {fileID: 8300000, guid: 90b1bd647c6c59c489e60caa4d377d08, type: 3}

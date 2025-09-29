@@ -14,16 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpName: ProximityBomb
   powerUpPrefab: {fileID: 7329726899166178089, guid: ac0580c1eb99edc4199170f6d1ab4f29, type: 3}
-  priority: 8
-  cooldown: 4
+  priority: 2
+  cooldown: 2
+  spawnAfterMove: 0
+  requiredLevel: 1
+  requiredScore: 0
   pickupVFX: {fileID: 3174180387778674059, guid: a5ac0a0b69bd9cb4baff767c04dbd51a, type: 3}
   pickupSFX: explosion0
   probability: 1
-  alternateWithPrevious: 1
-  spawnInterval: 4
+  alternateWithPrevious: 0
   requiresMaxBullets: 1
   stopAfterMaxBullets: 0
-  requiresOddMove: 0
-  requiredScore: 0
-  requiredLevel: 0
-  spawnAfterMove: 0
+  elapsedMoves: 0
