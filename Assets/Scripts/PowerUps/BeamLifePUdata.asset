@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   powerUpName: BeamFrostPU
   powerUpPrefab: {fileID: 7329726899166178089, guid: 4b21843e1b8142d48bf00b901ed1bf10, type: 3}
-  priority: 3
-  cooldown: 2
+  priority: 2
+  cooldown: 1
   spawnAfterMove: 0
-  requiredLevel: 1
+  requiredLevel: 2
   requiredScore: 0
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: beamLifePU
@@ -25,4 +25,5 @@ MonoBehaviour:
   alternateWithPrevious: 0
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
+  spawnOnlyOnce: 0
   elapsedMoves: 2

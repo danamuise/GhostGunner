@@ -45,7 +45,7 @@ public class GameState : MonoBehaviour
     {
         fireHasBeenUsed = value;
     }
-
+    private bool bonusPowerUps = false;
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -60,6 +60,11 @@ public class GameState : MonoBehaviour
 
         // Only reset if starting a new game
         // ResetGameState();
+    }
+    public bool BonusPowerUps
+    {
+        get => bonusPowerUps;
+        set => bonusPowerUps = value;
     }
 
     public void ResetGameState()

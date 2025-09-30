@@ -15,9 +15,9 @@ MonoBehaviour:
   powerUpName: BeamFrostPU
   powerUpPrefab: {fileID: 7329726899166178089, guid: 1a1df12a246097f4ebde39cf3920f4fd, type: 3}
   priority: 1
-  cooldown: 2
+  cooldown: 1
   spawnAfterMove: 0
-  requiredLevel: 1
+  requiredLevel: 2
   requiredScore: 0
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: analog-lazer
@@ -25,4 +25,5 @@ MonoBehaviour:
   alternateWithPrevious: 0
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
+  spawnOnlyOnce: 0
   elapsedMoves: 2

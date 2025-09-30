@@ -764,10 +764,15 @@ MonoBehaviour:
   gameManager: {fileID: 81249631}
   bulletPool: {fileID: 1824429564}
   powerUps:
+  - {fileID: 11400000, guid: 4ba340b953a9c0c439ea62de88a2f23a, type: 2}
+  - {fileID: 11400000, guid: 8374684ae25bcfc479276b501be673fa, type: 2}
+  - {fileID: 11400000, guid: 8493c96a309530848882bf9353a63c3e, type: 2}
+  - {fileID: 11400000, guid: e01a7cddd95b85249ad821c8d47dd4ad, type: 2}
+  - {fileID: 11400000, guid: 34d0e7127bebf8c4ebe10b9df88656e7, type: 2}
+  bonusPowerUps:
   - {fileID: 11400000, guid: 771ad35c6d3dcd644a25452104b0f632, type: 2}
   - {fileID: 11400000, guid: 629ea238950f72a43a0e24100b0fad36, type: 2}
   - {fileID: 11400000, guid: 3da40f1d537ac6c4f96b7eb97a405f97, type: 2}
-  - {fileID: 11400000, guid: 34d0e7127bebf8c4ebe10b9df88656e7, type: 2}
   vfxOffset: {x: 0, y: 0.9}
 --- !u!4 &299981599
 Transform:
@@ -1787,7 +1792,6 @@ Transform:
   m_Children:
   - {fileID: 919284990}
   - {fileID: 1108855459}
-  - {fileID: 2013957153}
   m_Father: {fileID: 1967167362831560264}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &752585350
@@ -7576,55 +7580,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &2013957151
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2013957153}
-  - component: {fileID: 2013957152}
-  m_Layer: 0
-  m_Name: Global Volume
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2013957152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013957151}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 0
-  sharedProfile: {fileID: 11400000, guid: e89ad8d3329f9be44a6a45d221f080d3, type: 2}
---- !u!4 &2013957153
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2013957151}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.0187857, y: -2.9068341, z: 0.034349967}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 752585349}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2033891261
 GameObject:
   m_ObjectHideFlags: 0

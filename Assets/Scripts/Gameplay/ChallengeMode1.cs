@@ -352,6 +352,17 @@ public class ChallengeMode1 : MonoBehaviour
         Debug.Log("✅ Challenge Success - Stage 6");
         challengeCompleted = true;
         CleanupAfterChallenge();
+       
+        if (GameState.Instance != null != null)
+        {
+            GameState.Instance.BonusPowerUps = true;
+            Debug.Log("🎉 Bonus power-ups enabled in GameState.");
+        }
+        else
+        {
+            Debug.Log("🎉 Bonus power-ups not enabled.");
+        }
+
 
         if (BonusPowerUps != null)
         {
@@ -359,6 +370,7 @@ public class ChallengeMode1 : MonoBehaviour
 
             // Start coroutine to enable power-ups with delays
             StartCoroutine(EnablePowerUpsWithDelay());
+            // In GameManager script, set GameManager.bonusPowerUps = true
         }
 
         // play the succeed animation on finalPhotos

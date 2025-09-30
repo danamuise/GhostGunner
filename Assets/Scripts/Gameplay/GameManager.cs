@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     private bool roundInProgress;
     private int moveCount = 0;
     private int totalScore = 0;
-
+    
     private void Awake()
     {
         roundInProgress = false;
@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour
             Debug.Log("🆕 Starting fresh — new level, no saved data.");
         }
     }
-
     public void AddScore(int amount)
     {
         Debug.Log($"➕ Adding {amount} points to score. New total: {totalScore + amount}");

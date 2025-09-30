@@ -22,6 +22,10 @@ public class PowerUpManager : MonoBehaviour
     [Tooltip("List of all power-up ScriptableObjects available for spawning.")]
     public List<PowerUpData> powerUps;
 
+    [Header("Bonus Power-Ups")]
+    [Tooltip("List of all power-up ScriptableObjects awarded at ChallengeLevel1.")]
+    public List<PowerUpData>bonusPowerUps;
+
     [Header("VFX / SFX Settings")]
     [Tooltip("Offset for the visual effects when a power-up is picked up.")]
     public Vector2 vfxOffset = new Vector2(0f, 0.9f);
@@ -39,6 +43,13 @@ public class PowerUpManager : MonoBehaviour
 
     private void Awake()
     {
+        if (GameState.Instance != null && GameState.Instance.BonusPowerUps)
+        {
+            AddBonusPowerUps();
+            Debug.Log("🎁 Bonus power-ups added.");
+        }
+
+
         ResetHasBeenUsed();
 
         if (gridTargetManager == null)
@@ -185,5 +196,19 @@ public class PowerUpManager : MonoBehaviour
 
         // Clear the spawnedOncePowerUps tracker
         spawnedOncePowerUps.Clear();
+    }
+
+    private void AddBonusPowerUps()
+    {
+        // Add list of bonusPowerUps to the end of list named powerUps
+        if (bonusPowerUps != null && bonusPowerUps.Count > 0)
+        {
+            powerUps.AddRange(bonusPowerUps);
+            Debug.Log($"🎉 Added {bonusPowerUps.Count} bonus power-ups to the powerUps list.");
+        }
+        else
+        {
+            Debug.LogWarning("⚠ No bonus power-ups to add.");
+        }
     }
 }
