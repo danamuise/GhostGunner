@@ -10,7 +10,7 @@ public class PowerUpData : ScriptableObject
     public string powerUpName;
     public GameObject powerUpPrefab;
     public int priority = 1;
-
+    
     [Header("Cooldown Settings")]
     public int cooldown = 1;
 
@@ -27,6 +27,7 @@ public class PowerUpData : ScriptableObject
 
     [Header("Special Settings")]
     public bool spawnOnlyOnce = false; // New property to track if the power-up should spawn only once
+    public bool spawnOnAllLevels;
 
     [HideInInspector] public int elapsedMoves = 0;
 
@@ -38,6 +39,7 @@ public class PowerUpData : ScriptableObject
         Debug.Log($"[PowerUpData] ResetRuntimeState called");
         elapsedMoves = cooldown; // Initialize elapsedMoves to cooldown
     }
+
 
     /// <summary>
     /// Determines if the power-up is eligible to spawn based on the current game state.
@@ -62,8 +64,8 @@ public class PowerUpData : ScriptableObject
         // Check spawn after move
         if (currentMove < spawnAfterMove) return false;
 
-        // Check level requirement
-        if (requiredLevel > 0 && currentLevel != requiredLevel) return false;
+        // Check level requirement (bypass if spawnOnAllLevels is true)
+        if (!spawnOnAllLevels && requiredLevel > 0 && currentLevel != requiredLevel) return false;
 
         // Check score requirement
         if (requiredScore > 0 && currentScore < requiredScore) return false;

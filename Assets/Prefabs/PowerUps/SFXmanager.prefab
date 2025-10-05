@@ -97,6 +97,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 14d8e4d6d2a2b5d43ab2113a89e25de7, type: 3}
   - name: analog-lazer
     clip: {fileID: 8300000, guid: 757c651087dee3a40b42f8252a40a47c, type: 3}
+  - name: FireSequenceSFX
+    clip: {fileID: 8300000, guid: 2137475de801eba4893b01ddf89eb461, type: 3}
   musicLibrary:
   - name: mainBGmusic
     clip: {fileID: 8300000, guid: 90b1bd647c6c59c489e60caa4d377d08, type: 3}

@@ -1,6 +1,8 @@
 ﻿// FireSequence.cs
+using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FireSequence : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class FireSequence : MonoBehaviour
     public float targetDestroyDelay = 0.5f;
     public float targetDelayTime = 0.25f;   // [0, 0, 1×, 2×, ...] row stagger
     public float postHold = 0.35f;          // pause after last row
+    public SpriteRenderer tinter; 
 
     [Header("Grid / Targets")]
     public string targetTag = "Target";     // kept for consistency (not required by this impl)
@@ -115,18 +118,21 @@ public class FireSequence : MonoBehaviour
 
     private IEnumerator FinishAndCleanup()
     {
-        TargetManager.blockAdvance = false;
-        Debug.Log("🔥 FireSequence complete: advance UNBLOCKED.");
+        //TargetManager.blockAdvance = false;
+        //Debug.Log("🔥 FireSequence complete: advance UNBLOCKED.");
 
         if (gun != null)
         {
-            gun.EnableGun(true);
-            Debug.Log("🔫 Gun re-enabled after FireSequence.");
+            //gun.EnableGun(true);
+            //Debug.Log("🔫 Gun re-enabled after FireSequence.");
         }
 
         // Reset so it can run again if re-enabled later
         running = false;
-        gameObject.SetActive(false);
+        // Fade to black and wait for it to finish
+        yield return FadeToBlack(1.0f);
+
+        //gameObject.SetActive(false);
         yield break;
     }
 
@@ -169,5 +175,41 @@ public class FireSequence : MonoBehaviour
 
         Debug.Log($"🔥 FindOccupiedBounds: sampled={samples}, occupied={hits}, any={any}");
         return any;
+    }
+
+    private IEnumerator FadeToBlack(float fadeTime)
+    {
+        if (tinter == null)
+        {
+            Debug.LogWarning("FadeToBlack: No SpriteRenderer (tinter) assigned.");
+            yield break;
+        }
+
+        Color color = tinter.color;
+        float elapsedTime = 0f;
+
+        // Gradually increase the alpha value from 0 to 1 over fadeTime
+        while (elapsedTime < fadeTime)
+        {
+            elapsedTime += Time.deltaTime;
+            float alpha = Mathf.Clamp01(elapsedTime / fadeTime);
+            tinter.color = new Color(color.r, color.g, color.b, alpha);
+            yield return null;
+        }
+
+        // Ensure the alpha is set to 1 at the end
+        tinter.color = new Color(color.r, color.g, color.b, 1f);
+
+        // Add a delay before loading the next level
+        float delayBeforeLoad = 0.5f; // Adjust this value as needed
+        yield return new WaitForSeconds(delayBeforeLoad);
+
+        // Load the next level after the delay
+        LoadChallengeLevel2();
+    }
+    public void LoadChallengeLevel2()
+    {
+        Debug.Log("🔄 Loading ChallengeLevel2 scene...");
+        SceneManager.LoadScene("ChallengeLevel2");
     }
 }

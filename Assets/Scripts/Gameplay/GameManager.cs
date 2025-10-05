@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     public TargetGridManager grid;
     public GhostShooter gun;
     public UIManager uiManager;
+    public GameObject ghostPosition;
 
     [Header("Sound Control Panel")]
     public GameObject soundUI;
@@ -129,23 +130,14 @@ public class GameManager : MonoBehaviour
 
             if (hasTargets)
             {
-                Debug.Log("💀 Final move reached — targets in Area 10. Game Over triggered.");
-                TriggerGameOver();
+                Debug.Log("💀 Final move reached — targets in Area 10. Delegating to TriggerGameOver.");
+                MoveTargetsToGhostGun(); // Move targets to the ghost gun before triggering game over
                 yield break;
             }
             else
             {
                 Debug.Log("✅ Only power-ups in Area 10 — destroying them and continuing game.");
-                int cols = grid.GetColumnCount();
-                for (int col = 0; col < cols; col++)
-                {
-                    GameObject obj = grid.GetTargetAt(col, 9);
-                    if (obj != null && obj.CompareTag("PowerUp"))
-                    {
-                        Destroy(obj);
-                        grid.MarkCellOccupied(col, 9, false);
-                    }
-                }
+                DestroyPowerUpsInRow(9);
             }
         }
 
@@ -153,8 +145,58 @@ public class GameManager : MonoBehaviour
         roundInProgress = false;
     }
 
+    private void MoveTargetsToGhostGun()
+    {
+        Vector3 ghostGunPosition = ghostPosition.transform.position; // Ghost gun position
+
+        int cols = grid.GetColumnCount();
+        for (int col = 0; col < cols; col++)
+        {
+            GameObject obj = grid.GetTargetAt(col, 9);
+            if (obj != null && obj.CompareTag("Target"))
+            {
+                Debug.Log($"🔄 Moving target {obj.name} to ghost gun position.");
+                StartCoroutine(MoveTargetToPosition(obj, ghostGunPosition));
+            }
+        }
+    }
+
+    private IEnumerator MoveTargetToPosition(GameObject target, Vector3 destination)
+    {
+        float duration = 0.1f; // Duration for the movement
+        Vector3 startPosition = target.transform.position;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            target.transform.position = Vector3.Lerp(startPosition, destination, elapsed / duration);
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        target.transform.position = destination;
+
+        // Trigger game over after all targets reach the ghost gun
+        TriggerGameOver();
+    }
+
+    private void DestroyPowerUpsInRow(int rowIndex)
+    {
+        int cols = grid.GetColumnCount();
+        for (int col = 0; col < cols; col++)
+        {
+            GameObject obj = grid.GetTargetAt(col, rowIndex);
+            if (obj != null && obj.CompareTag("PowerUp"))
+            {
+                Debug.Log($"🗑 Destroying Power-Up at column {col}, row {rowIndex}");
+                Destroy(obj);
+                grid.MarkCellOccupied(col, rowIndex, false);
+            }
+        }
+    }
+
     [System.Obsolete]
-    private void TriggerGameOver()
+    public void TriggerGameOver()
     {
         Debug.Log("💀 GAME OVER!");
         gun.DisableGun();

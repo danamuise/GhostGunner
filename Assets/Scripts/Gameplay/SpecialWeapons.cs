@@ -195,12 +195,8 @@ public class SpecialWeapons : MonoBehaviour
         }
 
         Debug.Log($"💥 TRIGGERED: {type} special weapon!");
-
-        if (type == SpecialWeaponType.Nuke)
-        {
-            Debug.Log("🚨 Activating Nuke Sequence...");
-            GameState.Instance.SaveState();
-        }
+        GameState.Instance.SaveState();
+        
 
         // Reset armed/charge state and UI
         isArmed = false;
@@ -213,11 +209,6 @@ public class SpecialWeapons : MonoBehaviour
         if (weaponToTrigger.icon != null)
             weaponToTrigger.icon.SetActive(false);
 
-        // Hide outline and icon when the sequence launches
-        SetOutlineVisible(weaponToTrigger, false);
-        if (weaponToTrigger.icon != null) weaponToTrigger.icon.SetActive(false);
-
-        // ✨ Add this:
         currentWeapon = null;   // prevents AddCharge from running again
 
     }

@@ -176,36 +176,10 @@ public class BookPhotoMatcher : MonoBehaviour
                 book.btn_useBook.gameObject.SetActive(false);
             }
 
-
-            /*
-            // Move book off screen to its original hidden position
-            if (book != null)
-            {
-                book.MoveBookOut(); // Assuming this moves the book back to its original off-screen spot
-            }
-            else
-            {
-                Debug.LogWarning("⚠️ Book reference not assigned!");
-            }
-            */
             return;
         }
 
         Debug.Log($"🔍 Now searching for photo ID: {civilianPhotoIDs[currentCivilianIndex]}");
-    }
-
-    private void finalStage()
-    {
-        //if player was successfull
-        //-- after 0.5 seconds to allow ghost to return to position
-        //show wordBaloon0
-        //show CL_text11
-
-
-
-
-        //if player failed. 
-
     }
 
     public void SetPagePhotoIDs(int id0, int id1, int id2, int id3)
@@ -222,7 +196,7 @@ public class BookPhotoMatcher : MonoBehaviour
         int baseID = spreadIndex * 4;
 
         SetPagePhotoIDs(baseID, baseID + 1, baseID + 2, baseID + 3);
-        Debug.Log($"📖 Book page {currentPage} set photo IDs {baseID}–{baseID + 3}");
+        Debug.Log($"📖 Updating Photos on page {currentPage} set photo IDs {baseID}–{baseID + 3}");
     }
 
     void ShowFeedback(int index, bool isCorrect)

@@ -143,16 +143,17 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20396999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb4e48fa394c4a4e8299c46efb1cd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mockScore: 0
+  mockScore: 2900
   mockHealth: 30
   mockBulletCount: 20
-  level: 1
+  level: 2
   autoStart: 1
+  bonusPowerUps: 1
 --- !u!4 &20397001
 Transform:
   m_ObjectHideFlags: 0
@@ -1206,8 +1207,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

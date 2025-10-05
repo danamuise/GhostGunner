@@ -15,7 +15,7 @@ MonoBehaviour:
   powerUpName: BeamFrostPU
   powerUpPrefab: {fileID: 7329726899166178089, guid: d994e7cec528791449196853d53e3a4f, type: 3}
   priority: 3
-  cooldown: 1
+  cooldown: 3
   spawnAfterMove: 0
   requiredLevel: 2
   requiredScore: 0
@@ -26,4 +26,5 @@ MonoBehaviour:
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
   spawnOnlyOnce: 0
-  elapsedMoves: 2
+  spawnOnAllLevels: 0
+  elapsedMoves: 1

@@ -23,6 +23,8 @@ public class Book : MonoBehaviour
     public Sprite[] bookPages;
     public bool interactable = true;
     public bool enableShadowEffect = true;
+    public GameObject wordBalloon1;
+    public GameObject wb1_text;
     //represent the index of the sprite shown in the right page
     public int currentPage = 0;
     public int TotalPageCount
@@ -91,6 +93,7 @@ public class Book : MonoBehaviour
     public Vector3 smallScale = new Vector3(0.68f, 0.68f, 0.68f);
     public Vector3 fullScale = new Vector3(1.59956f, 1.59956f, 1.59956f);
     public BookPhotoMatcher bookPhotoMatcher;
+
     public UnityEvent onBookOpened;
     //prevents conflict with page turning and book close
     public bool isPageTurning { get; private set; }
@@ -472,20 +475,27 @@ public class Book : MonoBehaviour
         if (pageLeft != null)
         {
             var sr = pageLeft.GetComponent<SpriteRenderer>();
-            if (sr != null)
+            if (sr != null) { 
+                Debug.Log("✅ Enabling Left Page.");
                 sr.enabled = currentPage >= 2;
+            }
         }
 
         if (bookPhotoMatcher != null)
-            bookPhotoMatcher.UpdateBookPhotosForPage(currentPage);
-        
-        // ✅ Only enable photo buttons if we're on pages 2 and 3
-        if (currentPage == 2 && bookPhotoMatcher != null)
         {
-            Debug.Log("✅ Enabling photo buttons now that page 2–3 is visible.");
-            bookPhotoMatcher.activatePhotoButtons();
+            bookPhotoMatcher.UpdateBookPhotosForPage(currentPage);
+        }
+        else
+        {
+            Debug.Log("BookPhotoMatcher NOT FOUND");
         }
 
+            // ✅ Only enable photo buttons if we're on pages 2 and 3
+            if (currentPage == 2 && bookPhotoMatcher != null)
+            {
+                Debug.Log("✅ Enabling photo buttons now that page 2–3 is visible.");
+                bookPhotoMatcher.activatePhotoButtons();
+            }
     }
 
 
@@ -678,6 +688,7 @@ public class Book : MonoBehaviour
 
     private IEnumerator NotifyBookOpenedAfterDelay()
     {
+
         yield return new WaitForSeconds(1f); // Adjust for your book open animation time
         onBookOpened?.Invoke();
     }
@@ -694,7 +705,8 @@ public class Book : MonoBehaviour
 
         SetControlButtonsVisible(true);
         SetUseBookButtonVisible(false);
-
+        wordBalloon1.gameObject.SetActive(false);
+        wb1_text.gameObject.SetActive(false);
         UpdatePageButtons();  // ✅ added to fix the next-button fade bug
     }
 
@@ -753,6 +765,7 @@ public class Book : MonoBehaviour
     void SetUseBookButtonVisible(bool visible)
     {
         if (btn_useBook != null) btn_useBook.gameObject.SetActive(visible);
+
     }
 
     public void MoveBookIn()

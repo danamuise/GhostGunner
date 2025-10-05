@@ -18,7 +18,7 @@ MonoBehaviour:
   cooldown: 0
   spawnAfterMove: 0
   requiredLevel: 1
-  requiredScore: 20
+  requiredScore: 500
   pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
   pickupSFX: NukePUhit
   probability: 1
@@ -26,4 +26,5 @@ MonoBehaviour:
   requiresMaxBullets: 0
   stopAfterMaxBullets: 0
   spawnOnlyOnce: 1
+  spawnOnAllLevels: 0
   elapsedMoves: 0

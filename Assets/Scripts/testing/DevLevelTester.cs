@@ -13,6 +13,7 @@ public class DevLevelTester : MonoBehaviour
     [Header("Startup Settings")]
     public int level = 1;               // 1 or 2 (default = 1)
     public bool autoStart = true;
+    public bool bonusPowerUps = false;
 
     private void Start()
     {
@@ -24,6 +25,11 @@ public class DevLevelTester : MonoBehaviour
 
     public void StartTestLevel(int levelToStart)
     {
+        if (bonusPowerUps)
+        {
+            GameState.Instance.BonusPowerUps = true;
+        }
+
         if (levelToStart != 1 && levelToStart != 2)
         {
             Debug.LogWarning("⚠️ DevLevelTester: Only Level 1 or 2 are supported for testing.");

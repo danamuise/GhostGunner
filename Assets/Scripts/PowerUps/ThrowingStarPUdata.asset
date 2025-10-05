@@ -22,8 +22,9 @@ MonoBehaviour:
   pickupVFX: {fileID: 5258156576701018113, guid: 29d746f375ef3874b8a11576a9e62ee3, type: 3}
   pickupSFX: PUCollect
   probability: 1
-  alternateWithPrevious: 0
+  alternateWithPrevious: 1
   requiresMaxBullets: 1
   stopAfterMaxBullets: 0
   spawnOnlyOnce: 0
-  elapsedMoves: 0
+  spawnOnAllLevels: 1
+  elapsedMoves: 1

@@ -5,6 +5,9 @@ using TMPro;
 
 public class ChallengeMode1 : MonoBehaviour
 {
+    [Header("testing")]
+    public bool challengeLevel2 = false;
+
     [Header("Scene Objects")]
     [SerializeField] private GameObject ghost;
     [SerializeField] private GameObject wordBalloon;
@@ -36,6 +39,7 @@ public class ChallengeMode1 : MonoBehaviour
     [SerializeField] public TextMeshProUGUI CL10_textObject;
     [SerializeField] public TextMeshProUGUI CL11_textObject;
     [SerializeField] public TextMeshProUGUI CL12_textObject;
+    [SerializeField] public TextMeshProUGUI CL13_textObject;
 
     [Header("Animation Settings")]
     [SerializeField] private float ghostStartY = -6.20f;
@@ -95,7 +99,18 @@ public class ChallengeMode1 : MonoBehaviour
     private void Start()
     {
         PlayChallengeMusic();
-        Stage0sequence();
+
+        if (challengeLevel2)
+        {
+            // Start directly with Stage 5 if challengeLevel2 is true
+            currentState = 3;
+            RunCurrentState();
+        }
+        else
+        {
+            // Default behavior for Challenge Level 1
+            Stage0sequence();
+        }
     }
 
     public void PlayChallengeMusic()
@@ -214,17 +229,30 @@ public class ChallengeMode1 : MonoBehaviour
     {
         Debug.Log("▶ Stage 3 sequence");
         StartCoroutine(Stage3sequenceCoroutine());
+        
     }
 
     private IEnumerator Stage3sequenceCoroutine()
     {
-        yield return StartCoroutine(FadeOutToBlack(familesGraphicRenderer));
-
-        desktopRenderer.enabled = true;
         yield return StartCoroutine(FadeInSprite(desktopRenderer));
+        if (challengeLevel2)
+        {
+            wordBalloonRenderer.enabled = true;
+            CL13_textObject.gameObject.SetActive(true);
+            StartCoroutine(MoveGhostWithOvershoot());
+        } else
+        {
+            CL3_textObject.gameObject.SetActive(false);
+            CL4_textObject.gameObject.SetActive(true);
+        }
 
-        CL3_textObject.gameObject.SetActive(false);
-        CL4_textObject.gameObject.SetActive(true);
+
+            yield return StartCoroutine(FadeOutToBlack(familesGraphicRenderer));
+        yield return StartCoroutine(MoveGhostWithOvershoot());
+        desktopRenderer.enabled = true;
+        
+
+       
 
         civilianPhotos.SetActive(true);
 
@@ -234,8 +262,14 @@ public class ChallengeMode1 : MonoBehaviour
     public void Stage4sequence()
     {
         Debug.Log("▶ Stage 4 sequence STARTED");
-
-        CL4_textObject.gameObject.SetActive(false);
+        if (challengeLevel2)
+        {
+            CL13_textObject.gameObject.SetActive(false);
+        } else
+        {
+            CL4_textObject.gameObject.SetActive(false);
+        }
+            
         wordBalloon.SetActive(false);
         stateAdvanceButton.SetActive(false);
 
@@ -353,7 +387,7 @@ public class ChallengeMode1 : MonoBehaviour
         challengeCompleted = true;
         CleanupAfterChallenge();
        
-        if (GameState.Instance != null != null)
+        if (GameState.Instance != null)
         {
             GameState.Instance.BonusPowerUps = true;
             Debug.Log("🎉 Bonus power-ups enabled in GameState.");

@@ -22,8 +22,9 @@ MonoBehaviour:
   pickupVFX: {fileID: 3174180387778674059, guid: a5ac0a0b69bd9cb4baff767c04dbd51a, type: 3}
   pickupSFX: explosion0
   probability: 1
-  alternateWithPrevious: 0
+  alternateWithPrevious: 1
   requiresMaxBullets: 1
   stopAfterMaxBullets: 0
   spawnOnlyOnce: 0
-  elapsedMoves: 0
+  spawnOnAllLevels: 1
+  elapsedMoves: 2
