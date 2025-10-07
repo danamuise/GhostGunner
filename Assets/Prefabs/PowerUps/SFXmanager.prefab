@@ -99,6 +99,10 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 757c651087dee3a40b42f8252a40a47c, type: 3}
   - name: FireSequenceSFX
     clip: {fileID: 8300000, guid: 2137475de801eba4893b01ddf89eb461, type: 3}
+  - name: PointsTally
+    clip: {fileID: 8300000, guid: 0c22ec105e4c50e46a349b7ce413e502, type: 3}
+  - name: bonusScore
+    clip: {fileID: 8300000, guid: 0a69375aef845f740ba511c83dec7c0d, type: 3}
   musicLibrary:
   - name: mainBGmusic
     clip: {fileID: 8300000, guid: 90b1bd647c6c59c489e60caa4d377d08, type: 3}

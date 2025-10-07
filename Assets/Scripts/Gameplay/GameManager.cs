@@ -30,6 +30,10 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         roundInProgress = false;
+        if (GameState.Instance.BonusPointsAwarded)
+        {
+            AddBonusPoints();
+        }
     }
 
     [System.Obsolete]
@@ -329,5 +333,10 @@ public class GameManager : MonoBehaviour
 
         Debug.Log(isSFXOn ? "🔊 SFX ON" : "🔇 SFX OFF");
         MoveUIIn();
+    }
+    private void AddBonusPoints()
+    {
+        //add 1000 points onto score from Challenge mode 2
+        AddScore(1000);
     }
 }

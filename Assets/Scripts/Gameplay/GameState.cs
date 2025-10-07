@@ -18,8 +18,10 @@ public class GameState : MonoBehaviour
 
     // Special Weapons (for in-session use only)
     public SpecialWeaponType SpecialWeaponUnlocked { get; set; } = SpecialWeaponType.None;
+    
     public bool IsSpecialWeaponCharged = false;
-
+    public bool challegeLevel2 { get; set; } = false;
+    public bool BonusPointsAwarded { get; set; } = false;
     public int[] HighScores { get; private set; } = new int[5];
 
     // Special weapon usage tracking

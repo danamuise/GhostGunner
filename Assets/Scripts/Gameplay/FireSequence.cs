@@ -205,11 +205,12 @@ public class FireSequence : MonoBehaviour
         yield return new WaitForSeconds(delayBeforeLoad);
 
         // Load the next level after the delay
-        LoadChallengeLevel2();
+        LoadChallengeLevel1();
     }
-    public void LoadChallengeLevel2()
+    public void LoadChallengeLevel1()
     {
-        Debug.Log("🔄 Loading ChallengeLevel2 scene...");
-        SceneManager.LoadScene("ChallengeLevel2");
+        GameState.Instance.challegeLevel2 = true;
+        Debug.Log("🔄 Loading ChallengeLevel1 scene...");
+        SceneManager.LoadScene("ChallengeLevel1");
     }
 }

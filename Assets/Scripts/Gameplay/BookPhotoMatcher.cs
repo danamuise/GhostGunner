@@ -4,30 +4,40 @@ using System.Collections;
 
 public class BookPhotoMatcher : MonoBehaviour
 {
+    
+
     [Header("Book Reference")]
     public Book book; // Assign in Inspector
 
     [Header("UI Book Photo Buttons")]
     public Button[] bookPhotoButtons; // bookPhoto0–bookPhoto3
 
-    [Header("Civilian Photo Animators")]
-    public Animator[] civilianAnimators; // 3 animators, top one is current
+    [Header("Civilian PhotoStamp animators")]
+    public Animator[] civilianAnimators1; // 3 animators, top one is current
+    public Animator[] civilianAnimators2; // 3 animators, top one is current
 
     [Header("Book Photo Button Roots (Prefabs)")]
     public GameObject[] bookPhotoButtonRoots; // Same order as bookPhotoButtons
 
     private int[] civilianPhotoIDs = new int[] { 0, 14, 9 };
+    
     private int currentCivilianIndex = 0;
     private int[] bookPhotoIDsOnCurrentPage = new int[4];
 
     [Header("Parent Animator for Slide Outs")]
+    public GameObject civilianPhotosParent1;
     public Animator civilianPhotosParentAnimator;
+    public GameObject civilianPhotosParent2;
+    public Animator civilianPhotosParentAnimator2;
     public ChallengeMode1 challengeManager;
     private int wrongPhotoClickCount = 0;
 
     public Sprite challengePUaward;
+    private bool challengeLevel2;
     void Start()
     {
+        challengeLevel2 = GameState.Instance.challegeLevel2;
+        Debug.Log("TESTING, challengeLevel2: " + challengeLevel2);
         currentCivilianIndex = 0;
         book.onBookOpened.AddListener(OnBookOpenedByPlayer);
 
@@ -36,6 +46,24 @@ public class BookPhotoMatcher : MonoBehaviour
         {
             int index = i;
             bookPhotoButtons[i].onClick.AddListener(() => OnPhotoButtonClicked(index));
+        }
+        
+        if (challengeLevel2)
+        {
+            civilianPhotoIDs = new int[] { 18, 20, 4 };
+
+            if (civilianPhotosParentAnimator2 != null)
+            {
+                civilianPhotosParentAnimator2.enabled = true;
+                Debug.Log($"Using ChallengeLevel2 photos");
+            }
+        } else
+        {
+            if (civilianPhotosParentAnimator != null)
+            {
+                civilianPhotosParentAnimator.enabled = true;
+                Debug.Log($"Using ChallengeLevel1 photos");
+            }
         }
     }
 
@@ -103,24 +131,48 @@ public class BookPhotoMatcher : MonoBehaviour
         DisableBookPhotoButtons();
         yield return new WaitForSeconds(0.5f);
 
-        // trigger stamp animation
-        if (currentCivilianIndex < civilianAnimators.Length && civilianAnimators[currentCivilianIndex] != null)
+        if (!challengeLevel2)
         {
-            string stampParam = $"stamp{currentCivilianIndex}";
-            civilianAnimators[currentCivilianIndex].SetBool(stampParam, true);
-            Debug.Log($"📬 Triggered animation bool '{stampParam}' on civilian photo {currentCivilianIndex}");
+            // trigger stamp animation
+            if (currentCivilianIndex < civilianAnimators1.Length && civilianAnimators1[currentCivilianIndex] != null)
+            {
+                string stampParam = $"stamp{currentCivilianIndex}";
+                civilianAnimators1[currentCivilianIndex].SetBool(stampParam, true);
+                Debug.Log($"📬 Triggered animation bool '{stampParam}' on civilian photo {currentCivilianIndex}");
+            }
+
+            yield return new WaitForSeconds(0.75f);
+
+            if (civilianPhotosParentAnimator != null)
+            {
+                string slideOutParam = $"slideOut{currentCivilianIndex}";
+                civilianPhotosParentAnimator.SetBool(slideOutParam, true);
+                Debug.Log($"📤 Triggered animation bool '{slideOutParam}' on CivilianPhotos");
+            }
+
+        } else if (challengeLevel2)
+        {
+            // trigger stamp animation
+            if (currentCivilianIndex < civilianAnimators2.Length && civilianAnimators2[currentCivilianIndex] != null)
+            {
+                string stampParam = $"stamp{currentCivilianIndex}";
+                civilianAnimators2[currentCivilianIndex].SetBool(stampParam, true);
+                Debug.Log($"📬 Triggered animation bool '{stampParam}' on civilian photo {currentCivilianIndex}");
+            }
+
+            yield return new WaitForSeconds(0.75f);
+
+            if (civilianPhotosParentAnimator2 != null)
+            {
+                string slideOutParam = $"slideOut{currentCivilianIndex}";
+                civilianPhotosParentAnimator2.SetBool(slideOutParam, true);
+                Debug.Log($"📤 Triggered animation bool '{slideOutParam}' on CivilianPhotos");
+            }
         }
 
-        yield return new WaitForSeconds(0.75f);
 
-        if (civilianPhotosParentAnimator != null)
-        {
-            string slideOutParam = $"slideOut{currentCivilianIndex}";
-            civilianPhotosParentAnimator.SetBool(slideOutParam, true);
-            Debug.Log($"📤 Triggered animation bool '{slideOutParam}' on CivilianPhotos");
-        }
 
-        yield return new WaitForSeconds(1.2f);
+            yield return new WaitForSeconds(1.2f);
 
         // ➡️ NEW: show CL9 or CL10 depending on which photo was matched
         if (challengeManager != null)

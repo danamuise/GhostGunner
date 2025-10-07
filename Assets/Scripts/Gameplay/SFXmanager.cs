@@ -1,4 +1,7 @@
-﻿using UnityEngine;
+﻿// 10/5/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
+using UnityEngine;
 using System.Collections.Generic;
 
 public class SFXManager : MonoBehaviour
@@ -165,5 +168,66 @@ public class SFXManager : MonoBehaviour
 
         musicSource.Stop();
         musicSource.volume = startVol;
+    }
+
+    // 🔁 Play looping SFX
+    public void PlayLoopingSFX(string soundName, float volume = 1f, float pitch = 1f)
+    {
+        bool sfxEnabled = PlayerPrefs.GetInt("SFX_ENABLED", 1) == 1;
+        if (!sfxEnabled) return;
+
+        if (!sfxSources.TryGetValue(soundName, out AudioSource source))
+        {
+            Debug.LogWarning($"🔇 SFXManager: No AudioSource found for '{soundName}'");
+            return;
+        }
+
+        source.pitch = pitch;
+        source.volume = volume;
+        source.loop = true; // Enable looping
+        source.Play();
+
+        Debug.Log($"🔁 Playing looping SFX: {soundName}");
+    }
+
+    // ⏹️ Stop looping SFX
+    public void StopLoopingSFX(string soundName, float fadeDuration = 0.5f)
+    {
+        if (!sfxSources.TryGetValue(soundName, out AudioSource source))
+        {
+            Debug.LogWarning($"🔇 SFXManager: No AudioSource found for '{soundName}'");
+            return;
+        }
+
+        if (source.isPlaying)
+        {
+            StartCoroutine(FadeOutAndStop(source, fadeDuration));
+        }
+        else
+        {
+            source.loop = false; // Ensure looping is disabled
+            source.Stop();
+            Debug.Log($"⏹ Stopped looping SFX: {soundName}");
+        }
+    }
+
+    // Coroutine to fade out the volume and stop the AudioSource
+    private System.Collections.IEnumerator FadeOutAndStop(AudioSource source, float duration)
+    {
+        float startVolume = source.volume;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            time += Time.deltaTime;
+            source.volume = Mathf.Lerp(startVolume, 0f, time / duration);
+            yield return null;
+        }
+
+        source.volume = startVolume; // Reset volume for future use
+        source.loop = false; // Ensure looping is disabled
+        source.Stop();
+
+        Debug.Log($"⏹ Faded out and stopped looping SFX.");
     }
 }

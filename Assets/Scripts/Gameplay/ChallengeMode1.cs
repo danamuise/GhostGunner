@@ -5,8 +5,8 @@ using TMPro;
 
 public class ChallengeMode1 : MonoBehaviour
 {
-    [Header("testing")]
-    public bool challengeLevel2 = false;
+    
+    private bool challengeLevel2 = false;
 
     [Header("Scene Objects")]
     [SerializeField] private GameObject ghost;
@@ -18,6 +18,7 @@ public class ChallengeMode1 : MonoBehaviour
     [SerializeField] private GameObject desktop;
     [SerializeField] private GameObject stateAdvanceButton;
     [SerializeField] private GameObject civilianPhotos;
+    [SerializeField] private GameObject civilianPhotos2;
     [SerializeField] private GameObject timerObject;
     [SerializeField] private GameObject timeBar;
     [SerializeField] private Button btn_nextLevel;
@@ -25,6 +26,7 @@ public class ChallengeMode1 : MonoBehaviour
     [SerializeField] private GameObject PowerUp1;
     [SerializeField] private GameObject PowerUp2;
     [SerializeField] private GameObject PowerUp3;
+    [SerializeField] private GameObject BonusPoints;
 
     [Header("Text Objects")]
     [SerializeField] private TextMeshProUGUI CL1_textObject;
@@ -40,6 +42,7 @@ public class ChallengeMode1 : MonoBehaviour
     [SerializeField] public TextMeshProUGUI CL11_textObject;
     [SerializeField] public TextMeshProUGUI CL12_textObject;
     [SerializeField] public TextMeshProUGUI CL13_textObject;
+    [SerializeField] public TextMeshProUGUI CL14_textObject;
 
     [Header("Animation Settings")]
     [SerializeField] private float ghostStartY = -6.20f;
@@ -80,9 +83,11 @@ public class ChallengeMode1 : MonoBehaviour
         zombieGraphic0Renderer.enabled = false;
         zombieGraphic1Renderer.enabled = false;
         familesGraphicRenderer.enabled = false;
-        desktopRenderer.enabled = false;
+        if (!challengeLevel2)
+        {
+            desktopRenderer.enabled = false;
+        }
         stateAdvanceButtonRenderer.enabled = false;
-
         CL1_textObject.gameObject.SetActive(false);
         CL2_textObject.gameObject.SetActive(false);
         CL3_textObject.gameObject.SetActive(false);
@@ -99,7 +104,8 @@ public class ChallengeMode1 : MonoBehaviour
     private void Start()
     {
         PlayChallengeMusic();
-
+        challengeLevel2 = GameState.Instance.challegeLevel2;
+           
         if (challengeLevel2)
         {
             // Start directly with Stage 5 if challengeLevel2 is true
@@ -228,6 +234,7 @@ public class ChallengeMode1 : MonoBehaviour
     public void Stage3sequence()
     {
         Debug.Log("▶ Stage 3 sequence");
+        desktopRenderer.enabled=true;
         StartCoroutine(Stage3sequenceCoroutine());
         
     }
@@ -386,26 +393,6 @@ public class ChallengeMode1 : MonoBehaviour
         Debug.Log("✅ Challenge Success - Stage 6");
         challengeCompleted = true;
         CleanupAfterChallenge();
-       
-        if (GameState.Instance != null)
-        {
-            GameState.Instance.BonusPowerUps = true;
-            Debug.Log("🎉 Bonus power-ups enabled in GameState.");
-        }
-        else
-        {
-            Debug.Log("🎉 Bonus power-ups not enabled.");
-        }
-
-
-        if (BonusPowerUps != null)
-        {
-            BonusPowerUps.SetActive(true);
-
-            // Start coroutine to enable power-ups with delays
-            StartCoroutine(EnablePowerUpsWithDelay());
-            // In GameManager script, set GameManager.bonusPowerUps = true
-        }
 
         // play the succeed animation on finalPhotos
         GameObject finalPhotos = GameObject.Find("finalPhotos");
@@ -427,16 +414,52 @@ public class ChallengeMode1 : MonoBehaviour
             Debug.LogWarning("⚠️ finalPhotos object not found in scene");
         }
 
-        // show CL_text11
-        if (CL11_textObject != null)
+        if (!challengeLevel2)
         {
-            CL11_textObject.gameObject.SetActive(true);
-            Debug.Log("📝 CL11_textObject shown in Stage 6");
-        }
-        else
+            if (GameState.Instance != null)
+            {
+                GameState.Instance.BonusPowerUps = true;
+                Debug.Log("🎉 Bonus power-ups enabled in GameState.");
+            }
+            else
+            {
+                Debug.Log("🎉 Bonus power-ups not enabled.");
+            }
+
+
+            if (BonusPowerUps != null)
+            {
+                BonusPowerUps.SetActive(true);
+
+                // Start coroutine to enable power-ups with delays
+                StartCoroutine(EnablePowerUpsWithDelay());
+                // In GameManager script, set GameManager.bonusPowerUps = true
+            }
+
+            // show CL_text11
+            if (CL11_textObject != null)
+            {
+                CL11_textObject.gameObject.SetActive(true);
+                Debug.Log("📝 CL11_textObject shown in Stage 6");
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ CL11_textObject not assigned in Inspector");
+            }
+        } else
         {
-            Debug.LogWarning("⚠️ CL11_textObject not assigned in Inspector");
-        }
+            BonusPoints.SetActive(true);
+            // show CL_text11
+            if (CL14_textObject != null)
+            {
+                CL14_textObject.gameObject.SetActive(true);
+                Debug.Log("📝 CL11_textObject shown in Stage 6");
+            }
+            else
+            {
+                Debug.LogWarning("⚠️ CL11_textObject not assigned in Inspector");
+            }
+        }        
     }
 
     private IEnumerator EnablePowerUpsWithDelay()
@@ -654,6 +677,7 @@ public class ChallengeMode1 : MonoBehaviour
         if (civilianPhotos != null)
         {
             civilianPhotos.SetActive(false);
+            civilianPhotos2.SetActive(false);
         }
 
         // ✅ Hide all text objects CL1 through CL9 and wordBalloon1

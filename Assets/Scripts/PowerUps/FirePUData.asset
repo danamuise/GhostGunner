@@ -23,7 +23,8 @@ MonoBehaviour:
   pickupSFX: NukePUhit
   probability: 1
   alternateWithPrevious: 0
-  requiresMaxBullets: 0
+  requiresMaxBullets: 1
   stopAfterMaxBullets: 0
   spawnOnlyOnce: 1
+  spawnOnAllLevels: 0
   elapsedMoves: 0
