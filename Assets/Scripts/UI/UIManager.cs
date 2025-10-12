@@ -8,7 +8,7 @@ public class UIManager : MonoBehaviour
     public TextMeshProUGUI scoreFieldUI;
 
     [Header("Final Score UI")]
-    public TextMeshProUGUI finalScoreUI;
+    //public TextMeshProUGUI finalScoreUI;
 
     [Header("Scene References")]
     private GameManager gameManager;
@@ -31,13 +31,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void ShowFinalScore(int finalScore)
+    /*public void ShowFinalScore(int finalScore)
     {
         if (finalScoreUI != null)
         {
             finalScoreUI.text = $"Final Score: {finalScore}";
         }
-    }
+    }*/
 
     public void InitializeUI()
     {
@@ -50,7 +50,7 @@ public class UIManager : MonoBehaviour
         SceneManager.LoadScene("SplashScreen");
         gameManager.ResetScore(); // Add ResetScore method in GameManager
         InitializeUI();
-        ShowFinalScore(0);
+        //ShowFinalScore(0);
         targetManager.ClearAllTargets();
         SFXManager.Instance.FadeOutMusic(2f);
         grid.InitializeGrid();

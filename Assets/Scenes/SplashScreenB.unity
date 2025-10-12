@@ -135,7 +135,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &20397000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,12 +148,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbb4e48fa394c4a4e8299c46efb1cd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mockScore: 3500
-  mockHealth: 30
-  mockBulletCount: 20
-  level: 2
+  mockScore: 0
+  mockHealth: 1
+  mockBulletCount: 1
+  level: 1
   autoStart: 1
-  bonusPowerUps: 1
+  bonusPowerUps: 0
+  initializeHighScores: 1
 --- !u!4 &20397001
 Transform:
   m_ObjectHideFlags: 0

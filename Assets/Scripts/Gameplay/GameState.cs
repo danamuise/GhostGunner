@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Unity.VisualScripting;
+using UnityEngine;
 
 
 public class GameState : MonoBehaviour
@@ -19,10 +20,10 @@ public class GameState : MonoBehaviour
     // Special Weapons (for in-session use only)
     public SpecialWeaponType SpecialWeaponUnlocked { get; set; } = SpecialWeaponType.None;
     
-    public bool IsSpecialWeaponCharged = false;
+    //public bool IsSpecialWeaponCharged = false;
     public bool challegeLevel2 { get; set; } = false;
     public bool BonusPointsAwarded { get; set; } = false;
-    public int[] HighScores { get; private set; } = new int[5];
+    
 
     // Special weapon usage tracking
     private bool nukeHasBeenUsed = false;
@@ -50,6 +51,7 @@ public class GameState : MonoBehaviour
     private bool bonusPowerUps = false;
     private void Awake()
     {
+        InitializePPhighScores();
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -57,8 +59,6 @@ public class GameState : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-
-        LoadHighScores();
 
         // Only reset if starting a new game
         // ResetGameState();
@@ -79,45 +79,7 @@ public class GameState : MonoBehaviour
         ContinueFromLastSave = false;
         LevelNumber = 1;
         SpecialWeaponUnlocked = SpecialWeaponType.None;
-        IsSpecialWeaponCharged = false;
-    }
-
-    // Load high scores from PlayerPrefs
-    public void LoadHighScores()
-    {
-        for (int i = 0; i < HighScores.Length; i++)
-        {
-            HighScores[i] = PlayerPrefs.GetInt($"HighScore_{i}", 0);
-        }
-    }
-
-    // Save high scores to PlayerPrefs
-    public void SaveHighScores()
-    {
-        for (int i = 0; i < HighScores.Length; i++)
-        {
-            PlayerPrefs.SetInt($"HighScore_{i}", HighScores[i]);
-        }
-        PlayerPrefs.Save();
-    }
-
-    // Call this to try to insert a new high score
-    public void CheckAndUpdateHighScores()
-    {
-        for (int i = 0; i < HighScores.Length; i++)
-        {
-            if (CurrentScore > HighScores[i])
-            {
-                // shift down lower scores
-                for (int j = HighScores.Length - 1; j > i; j--)
-                {
-                    HighScores[j] = HighScores[j - 1];
-                }
-                HighScores[i] = CurrentScore;
-                SaveHighScores();
-                break;
-            }
-        }
+        //IsSpecialWeaponCharged = false;
     }
 
     [System.Obsolete]
@@ -152,6 +114,29 @@ public class GameState : MonoBehaviour
         if (SFXManager.Instance != null)
         {
             SFXManager.Instance.Play("buttonClick0");
+        }
+    }
+
+    
+    // this function is for testing game over score display
+    public void ResetPPhighScores()
+    {
+        PlayerPrefs.SetInt("HighScore1", 0);
+        PlayerPrefs.SetInt("HighScore2", 0);
+        PlayerPrefs.SetInt("HighScore3", 0);
+        Debug.Log("PlayerPref HighScores reset");
+    }
+
+    private void InitializePPhighScores()
+    {
+        int PPhighScore = PlayerPrefs.GetInt("HighScore1", 0);
+        Debug.Log("PPhighScore: " + PPhighScore.ToString());
+        if (PPhighScore > 0)
+        {
+            Debug.Log("PlayerPref High Scores have already been initialized: HighScore1: " + PlayerPrefs.GetInt("HighScore1", 0) + ", HighScore2: " + PlayerPrefs.GetInt("HighScore2", 0) + ", HighScore3: " + PlayerPrefs.GetInt("HighScore3", 0));
+        } else
+        {
+            Debug.Log("PlayerPref HighScore1 initialized: " + PlayerPrefs.GetInt("HighScore1", 0));
         }
     }
 }

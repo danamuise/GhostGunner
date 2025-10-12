@@ -14,6 +14,7 @@ public class DevLevelTester : MonoBehaviour
     public int level = 1;               // 1 or 2 (default = 1)
     public bool autoStart = true;
     public bool bonusPowerUps = false;
+    public bool initializeHighScores = false;
 
     private void Start()
     {
@@ -25,6 +26,11 @@ public class DevLevelTester : MonoBehaviour
 
     public void StartTestLevel(int levelToStart)
     {
+        if (initializeHighScores)
+        {
+            GameState.Instance.ResetPPhighScores();
+        }
+
         if (bonusPowerUps)
         {
             GameState.Instance.BonusPowerUps = true;
@@ -43,6 +49,6 @@ public class DevLevelTester : MonoBehaviour
         GameState.Instance.ContinueFromLastSave = true;
 
         Debug.Log($"🚀 Starting Level {levelToStart} with mock data — Score: {mockScore}, Health: {mockHealth}, Bullets: {mockBulletCount}");
-        SceneManager.LoadScene("MainGameScene");
+        SceneManager.LoadScene("FTUEscene");
     }
 }

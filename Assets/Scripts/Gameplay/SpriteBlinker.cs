@@ -1,43 +1,47 @@
+﻿// 10/11/2025 AI-Tag
+// This was created with the help of Assistant, a Unity Artificial Intelligence product.
+
 using UnityEngine;
-using System.Collections;
 
 public class SpriteBlinker : MonoBehaviour
 {
-    public float blinkInterval = 0.5f;
+    [Tooltip("Speed at which the sprite blinks (in seconds).")]
+    public float blinkSpeed = 0.5f;
 
-    private SpriteRenderer sr;
-    private Coroutine blinkRoutine;
+    private SpriteRenderer[] spriteRenderers;
+    private bool isVisible = true;
 
-    void Awake()
+    private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-    }
+        // Get all SpriteRenderer components on this GameObject and its children
+        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
 
-    void OnEnable()
-    {
-        if (sr != null)
+        if (spriteRenderers.Length == 0)
         {
-            blinkRoutine = StartCoroutine(Blink());
+            Debug.LogWarning("⚠️ SpriteBlinker: No SpriteRenderer components found on this GameObject or its children.");
+            enabled = false;
+            return;
         }
+
+        // Start the blinking coroutine
+        StartCoroutine(BlinkSprites());
     }
 
-    void OnDisable()
-    {
-        if (blinkRoutine != null)
-        {
-            StopCoroutine(blinkRoutine);
-            sr.enabled = false; // Make sure it's off when disabled
-        }
-    }
-
-    IEnumerator Blink()
+    private System.Collections.IEnumerator BlinkSprites()
     {
         while (true)
         {
-            sr.enabled = true;
-            yield return new WaitForSeconds(blinkInterval);
-            sr.enabled = false;
-            yield return new WaitForSeconds(blinkInterval);
+            // Toggle visibility
+            isVisible = !isVisible;
+
+            // Apply visibility to all SpriteRenderers
+            foreach (var spriteRenderer in spriteRenderers)
+            {
+                spriteRenderer.enabled = isVisible;
+            }
+
+            // Wait for the specified blink speed
+            yield return new WaitForSeconds(blinkSpeed);
         }
     }
 }

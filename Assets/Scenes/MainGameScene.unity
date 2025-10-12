@@ -731,7 +731,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd0406b05a51e746b032d0e29036160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkInterval: 0.25
+  blinkSpeed: 0.5
 --- !u!1 &299981597
 GameObject:
   m_ObjectHideFlags: 0
@@ -952,7 +952,7 @@ MonoBehaviour:
     wordBalloon: {fileID: 7688554010722634964, guid: 2c4a50d45d278b541abcec8df051dfec, type: 3}
     hitVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
     outline: {fileID: 281938772}
-    chargeRequired: 1000
+    chargeRequired: 10
   - type: 2
     icon: {fileID: 95354132}
     wordBalloon: {fileID: 7688554010722634964, guid: 2c4a50d45d278b541abcec8df051dfec, type: 3}
@@ -1882,7 +1882,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &753661149
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4337,7 +4337,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreFieldUI: {fileID: 779435740}
-  finalScoreUI: {fileID: 0}
   gridTargetSpawner: {fileID: 1086136298}
   targetManager: {fileID: 1766850440}
   grid: {fileID: 1086136297}
@@ -7369,7 +7368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ecd0406b05a51e746b032d0e29036160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blinkInterval: 0.25
+  blinkSpeed: 0.5
 --- !u!212 &1961081815
 SpriteRenderer:
   m_ObjectHideFlags: 0
