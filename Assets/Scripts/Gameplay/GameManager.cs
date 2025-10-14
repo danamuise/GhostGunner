@@ -11,6 +11,10 @@ public class GameManager : MonoBehaviour
     public GhostShooter gun;
     public UIManager uiManager;
     public GameObject ghostPosition;
+    public GameObject environment1;
+    public GameObject environment2;
+    public GameObject environment3;
+
 
     [Header("Sound Control Panel")]
     public GameObject soundUI;
@@ -39,6 +43,12 @@ public class GameManager : MonoBehaviour
     [System.Obsolete]
     private void Start()
     {
+        GameState.Instance.CurrentLevel++;
+        Debug.Log(" CURRENT LEVEL: " + GameState.Instance.CurrentLevel);
+        if (GameState.Instance.CurrentLevel == 1){ environment1.gameObject.SetActive(true); }
+        if (GameState.Instance.CurrentLevel == 2) { environment2.gameObject.SetActive(true); }
+        if (GameState.Instance.CurrentLevel == 3) { environment3.gameObject.SetActive(true); }
+
         if (grid == null) grid = FindObjectOfType<TargetGridManager>();
         if (targetManager == null) targetManager = FindObjectOfType<TargetManager>();
         if (gridTargetSpawner == null) gridTargetSpawner = FindObjectOfType<GridTargetSpawner>();

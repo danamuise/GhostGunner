@@ -19,9 +19,6 @@ public class GameOver : MonoBehaviour
             scoreText.text = ScoreKeeper.finalScore.ToString();
             Debug.Log($" — Final Score: {ScoreKeeper.finalScore}");
             LoadHighScores();
-
-
-
         }
         else
         {
@@ -72,12 +69,18 @@ public class GameOver : MonoBehaviour
                 PlayerPrefs.SetInt("HighScore2", ScoreKeeper.finalScore);
                 highScoreText2.GetComponent<TMPblinker>().StartBlinking();
                 break;
+            
             case 3:
                 Debug.Log("High Score 3 Achieved: " + ScoreKeeper.finalScore.ToString());
                 PlayerPrefs.SetInt("HighScore3", ScoreKeeper.finalScore);
                 highScoreText3.GetComponent<TMPblinker>().StartBlinking();
                 break;
+
+            default:
+                Debug.Log("default");
+                break;
         }
+
         highScoreText1.text = PlayerPrefs.GetInt("HighScore1").ToString();
         highScoreText2.text = PlayerPrefs.GetInt("HighScore2").ToString();
         highScoreText3.text = PlayerPrefs.GetInt("HighScore3").ToString();

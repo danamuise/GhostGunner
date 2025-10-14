@@ -1,0 +1,650 @@
+fileFormatVersion: 2
+guid: 2a889e5891c6b1243836cd52183f4be4
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 7512612682928339543
+    second: ForestAtalas_0
+  - first:
+      213: -5570468397418316489
+    second: ForestAtalas_1
+  - first:
+      213: -7128815234608019457
+    second: ForestAtalas_2
+  - first:
+      213: 3043088897654121245
+    second: ForestAtalas_3
+  - first:
+      213: 8709651721692906895
+    second: ForestAtalas_4
+  - first:
+      213: -3245302095982461036
+    second: ForestAtalas_5
+  - first:
+      213: 4899296482740777295
+    second: ForestAtalas_6
+  - first:
+      213: -6789792721439411261
+    second: ForestAtalas_7
+  - first:
+      213: -4860280690083756638
+    second: ForestAtalas_8
+  - first:
+      213: -4330399279723351291
+    second: ForestAtalas_9
+  - first:
+      213: -7910869765281887047
+    second: ForestAtalas_10
+  - first:
+      213: -8632469495132806056
+    second: ForestAtalas_11
+  - first:
+      213: -6143000347577989295
+    second: ForestAtalas_12
+  - first:
+      213: 5788128248589644827
+    second: ForestAtalas_13
+  - first:
+      213: 5104194964090102181
+    second: ForestAtalas_14
+  - first:
+      213: 208347646574872553
+    second: ForestAtalas_15
+  - first:
+      213: -1999885469153235603
+    second: ForestAtalas_16
+  - first:
+      213: 1355797206571728309
+    second: ForestAtalas_17
+  - first:
+      213: 1943689769265736490
+    second: ForestAtalas_18
+  - first:
+      213: -6741093255532215516
+    second: ForestAtalas_19
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ForestAtalas_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 217
+        width: 145
+        height: 207
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 75ab90d7e69224860800000000000000
+      internalID: 7512612682928339543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_1
+      rect:
+        serializedVersion: 2
+        x: 172
+        y: 285
+        width: 68
+        height: 107
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73d77539188b1b2b0800000000000000
+      internalID: -5570468397418316489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_2
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 285
+        width: 54
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ff7cbcf605c511d90800000000000000
+      internalID: -7128815234608019457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 285
+        width: 45
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13eb9cba393b3a20800000000000000
+      internalID: 3043088897654121245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_4
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 286
+        width: 44
+        height: 141
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8500ec5816eed870800000000000000
+      internalID: 8709651721692906895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_5
+      rect:
+        serializedVersion: 2
+        x: 182
+        y: 246
+        width: 25
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 49f722420fe56f2d0800000000000000
+      internalID: -3245302095982461036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_6
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 245
+        width: 33
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f41b517813ccdf340800000000000000
+      internalID: 4899296482740777295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_7
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 248
+        width: 26
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c332146e7fc5c1a0800000000000000
+      internalID: -6789792721439411261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_8
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 244
+        width: 21
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a50ed69670dc8cb0800000000000000
+      internalID: -4860280690083756638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_9
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 246
+        width: 19
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5037b7c6cc457e3c0800000000000000
+      internalID: -4330399279723351291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_10
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 215
+        width: 19
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9bcceffacd1f63290800000000000000
+      internalID: -7910869765281887047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_11
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 217
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 854a6302bbe433880800000000000000
+      internalID: -8632469495132806056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_12
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 19
+        width: 155
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 157438b1bbdafbaa0800000000000000
+      internalID: -6143000347577989295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_13
+      rect:
+        serializedVersion: 2
+        x: 174
+        y: 156
+        width: 57
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b14f69ba9ff835050800000000000000
+      internalID: 5788128248589644827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_14
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 200
+        width: 12
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5a1ade2d64eb5d640800000000000000
+      internalID: 5104194964090102181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_15
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 128
+        width: 58
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e742e7a41334e200800000000000000
+      internalID: 208347646574872553
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_16
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 131
+        width: 58
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6de7abf2cafe34e0800000000000000
+      internalID: -1999885469153235603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_17
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 59
+        width: 53
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5bdbc254062c0d210800000000000000
+      internalID: 1355797206571728309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_18
+      rect:
+        serializedVersion: 2
+        x: 220
+        y: 57
+        width: 55
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2b25aa0c8f59fa10800000000000000
+      internalID: 1943689769265736490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ForestAtalas_19
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 4
+        width: 104
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42388326663d272a0800000000000000
+      internalID: -6741093255532215516
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      ForestAtalas_0: 7512612682928339543
+      ForestAtalas_1: -5570468397418316489
+      ForestAtalas_10: -7910869765281887047
+      ForestAtalas_11: -8632469495132806056
+      ForestAtalas_12: -6143000347577989295
+      ForestAtalas_13: 5788128248589644827
+      ForestAtalas_14: 5104194964090102181
+      ForestAtalas_15: 208347646574872553
+      ForestAtalas_16: -1999885469153235603
+      ForestAtalas_17: 1355797206571728309
+      ForestAtalas_18: 1943689769265736490
+      ForestAtalas_19: -6741093255532215516
+      ForestAtalas_2: -7128815234608019457
+      ForestAtalas_3: 3043088897654121245
+      ForestAtalas_4: 8709651721692906895
+      ForestAtalas_5: -3245302095982461036
+      ForestAtalas_6: 4899296482740777295
+      ForestAtalas_7: -6789792721439411261
+      ForestAtalas_8: -4860280690083756638
+      ForestAtalas_9: -4330399279723351291
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
