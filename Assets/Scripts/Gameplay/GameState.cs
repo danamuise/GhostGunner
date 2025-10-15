@@ -72,7 +72,7 @@ public class GameState : MonoBehaviour
     public void ResetGameState()
     {
         CurrentScore = 0;
-        CurrentLevel = 1;
+        CurrentLevel = 0;
         AvailableSpecialWeapons = 0;
         SavedTargetHealth = -1;
         SavedBulletCount = -1;

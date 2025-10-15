@@ -151,7 +151,7 @@ MonoBehaviour:
   mockScore: 0
   mockHealth: 1
   mockBulletCount: 1
-  level: 1
+  level: 3
   autoStart: 1
   bonusPowerUps: 0
   initializeHighScores: 1

@@ -28,7 +28,7 @@ public class GameOver : MonoBehaviour
 
     public void OnPlayAgainPressed()
     {
-        GameState.Instance.LevelNumber = 1;
+        GameState.Instance.ResetGameState();
         GameState.Instance.ContinueFromLastSave = false;
         SceneManager.LoadScene("MainGameScene"); // play again from the start
     }
