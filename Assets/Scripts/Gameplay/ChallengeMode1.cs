@@ -234,13 +234,16 @@ public class ChallengeMode1 : MonoBehaviour
     public void Stage3sequence()
     {
         Debug.Log("▶ Stage 3 sequence");
-        desktopRenderer.enabled=true;
+        
         StartCoroutine(Stage3sequenceCoroutine());
         
     }
 
     private IEnumerator Stage3sequenceCoroutine()
     {
+        yield return StartCoroutine(FadeOutToBlack(familesGraphicRenderer));
+        //yield return new WaitForSeconds(1f);
+        desktopRenderer.enabled=true;
         yield return StartCoroutine(FadeInSprite(desktopRenderer));
         if (challengeLevel2)
         {
@@ -252,17 +255,9 @@ public class ChallengeMode1 : MonoBehaviour
             CL3_textObject.gameObject.SetActive(false);
             CL4_textObject.gameObject.SetActive(true);
         }
-
-
-            yield return StartCoroutine(FadeOutToBlack(familesGraphicRenderer));
+        civilianPhotos.SetActive(true);
         yield return StartCoroutine(MoveGhostWithOvershoot());
         desktopRenderer.enabled = true;
-        
-
-       
-
-        civilianPhotos.SetActive(true);
-
         blinkCoroutine = StartCoroutine(BlinkSprite(stateAdvanceButtonRenderer));
     }
 

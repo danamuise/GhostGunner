@@ -45,9 +45,21 @@ public class GameManager : MonoBehaviour
     {
         GameState.Instance.CurrentLevel++;
         Debug.Log(" CURRENT LEVEL: " + GameState.Instance.CurrentLevel);
-        if (GameState.Instance.CurrentLevel == 1){ environment1.gameObject.SetActive(true); }
-        if (GameState.Instance.CurrentLevel == 2) { environment2.gameObject.SetActive(true); }
-        if (GameState.Instance.CurrentLevel == 3) { environment3.gameObject.SetActive(true); }
+        if (GameState.Instance.CurrentLevel == 1){ 
+            environment1.gameObject.SetActive(true);
+            environment2.gameObject.SetActive(false);
+            environment3.gameObject.SetActive(false);
+        }
+        if (GameState.Instance.CurrentLevel == 2) {
+            environment1.gameObject.SetActive(false);
+            environment2.gameObject.SetActive(true);
+            environment3.gameObject.SetActive(false);
+        }
+        if (GameState.Instance.CurrentLevel == 3) {
+            environment1.gameObject.SetActive(false);
+            environment2.gameObject.SetActive(false);
+            environment3.gameObject.SetActive(true);
+        }
 
         if (grid == null) grid = FindObjectOfType<TargetGridManager>();
         if (targetManager == null) targetManager = FindObjectOfType<TargetManager>();
