@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     public GameObject environment2;
     public GameObject environment3;
 
-
     [Header("Sound Control Panel")]
     public GameObject soundUI;
     public GameObject moveUIoutButton;
@@ -30,14 +29,13 @@ public class GameManager : MonoBehaviour
     private bool roundInProgress;
     private int moveCount = 0;
     private int totalScore = 0;
-    
+
     private void Awake()
     {
         roundInProgress = false;
-        if (GameState.Instance.BonusPointsAwarded)
-        {
-            AddBonusPoints();
-        }
+
+        // ✂️ Removed bonus add from Awake(): totalScore is 0 here and UI/refs may not be ready.
+        // if (GameState.Instance.BonusPointsAwarded) { AddBonusPoints(); }
     }
 
     [System.Obsolete]
@@ -45,17 +43,20 @@ public class GameManager : MonoBehaviour
     {
         GameState.Instance.CurrentLevel++;
         Debug.Log(" CURRENT LEVEL: " + GameState.Instance.CurrentLevel);
-        if (GameState.Instance.CurrentLevel == 1){ 
+        if (GameState.Instance.CurrentLevel == 1)
+        {
             environment1.gameObject.SetActive(true);
             environment2.gameObject.SetActive(false);
             environment3.gameObject.SetActive(false);
         }
-        if (GameState.Instance.CurrentLevel == 2) {
+        if (GameState.Instance.CurrentLevel == 2)
+        {
             environment1.gameObject.SetActive(false);
             environment2.gameObject.SetActive(true);
             environment3.gameObject.SetActive(false);
         }
-        if (GameState.Instance.CurrentLevel == 3) {
+        if (GameState.Instance.CurrentLevel == 3)
+        {
             environment1.gameObject.SetActive(false);
             environment2.gameObject.SetActive(false);
             environment3.gameObject.SetActive(true);
@@ -69,10 +70,32 @@ public class GameManager : MonoBehaviour
 
         Debug.Log($"[Init] Rebinding scene refs: Grid={grid}, TargetMgr={targetManager}, Gun={gun}, UIManager={uiManager}");
 
+        // 🔽🔽🔽 PATCH 2: Anchor TargetHealthCurve to saved health BEFORE any grid/curve usage
+        if (GameState.Instance != null &&
+            GameState.Instance.ContinueFromLastSave &&
+            GameState.Instance.SavedTargetHealth > 0)
+        {
+            var thc = FindObjectOfType<TargetHealthCurve>();
+            if (thc != null)
+            {
+                thc.AnchorTo(GameState.Instance.SavedTargetHealth);
+                Debug.Log($"[Patch2] Anchored TargetHealthCurve to saved health = {GameState.Instance.SavedTargetHealth}");
+            }
+            else
+            {
+                Debug.LogWarning("[Patch2] TargetHealthCurve not found in scene; cannot anchor curve.");
+            }
+        }
+        // 🔼🔼🔼 END PATCH 2
+
         SFXManager.Instance.PlayMusic("mainBGmusic", 0.3f);
         grid.InitializeGrid();
         gun.EnableGun(true);
         uiManager?.InitializeUI();
+
+        // ✅ Always sync local score from GameState FIRST (regardless of continue)
+        totalScore = GameState.Instance.CurrentScore;
+        uiManager.UpdateScoreDisplay(totalScore);
 
         isSFXOn = PlayerPrefs.GetInt("SFX_ENABLED", 1) == 1;
         isMusicOn = PlayerPrefs.GetInt("MUSIC_ENABLED", 1) == 1;
@@ -90,7 +113,7 @@ public class GameManager : MonoBehaviour
             SFXManager.Instance.StopMusic();
         }
 
-        // ✅ DO THIS LAST: Apply saved game data
+        // 🔁 Log continue info (optional)
         if (GameState.Instance.ContinueFromLastSave)
         {
             Debug.Log("🔁 Continuing from saved state…");
@@ -98,16 +121,22 @@ public class GameManager : MonoBehaviour
             Debug.Log($"Bullets: {GameState.Instance.SavedBulletCount}");
             Debug.Log($"Saved Score: {GameState.Instance.CurrentScore}");
 
-            totalScore = GameState.Instance.CurrentScore;
-            uiManager.UpdateScoreDisplay(totalScore);
-
             StartCoroutine(ResetContinueFlag());
         }
         else
         {
             Debug.Log("🆕 Starting fresh — new level, no saved data.");
         }
+
+        // 🎁 Apply bonus AFTER score/UI are synced, then clear the flag
+        if (GameState.Instance.BonusPointsAwarded)
+        {
+            Debug.Log("🎁 Applying 1000 bonus points from ChallengeLevel2.");
+            AddBonusPoints();
+            GameState.Instance.BonusPointsAwarded = false; // prevent double awarding
+        }
     }
+
     public void AddScore(int amount)
     {
         Debug.Log($"➕ Adding {amount} points to score. New total: {totalScore + amount}");
@@ -285,6 +314,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ResetContinueFlag()
     {
         yield return new WaitForSeconds(1.5f);
+        GameState.Instance.ContinueFromLastSave = false;   // <-- ensure we clear it
         Debug.Log("🧹 Resetting ContinueFromLastSave = false");
     }
 
@@ -356,9 +386,10 @@ public class GameManager : MonoBehaviour
         Debug.Log(isSFXOn ? "🔊 SFX ON" : "🔇 SFX OFF");
         MoveUIIn();
     }
+
     private void AddBonusPoints()
     {
-        //add 1000 points onto score from Challenge mode 2
+        // add 1000 points onto score from Challenge mode 2
         AddScore(1000);
     }
 }

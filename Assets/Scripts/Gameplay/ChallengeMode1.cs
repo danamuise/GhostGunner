@@ -441,9 +441,11 @@ public class ChallengeMode1 : MonoBehaviour
             {
                 Debug.LogWarning("⚠️ CL11_textObject not assigned in Inspector");
             }
-        } else
+        }
+        else
         {
             BonusPoints.SetActive(true);
+            GameState.Instance.BonusPointsAwarded = true;
             // show CL_text11
             if (CL14_textObject != null)
             {

@@ -143,15 +143,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 20396999}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: dbb4e48fa394c4a4e8299c46efb1cd9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mockScore: 0
-  mockHealth: 1
-  mockBulletCount: 1
-  level: 3
+  mockScore: 2000
+  mockHealth: 20
+  mockBulletCount: 20
+  level: 1
   autoStart: 1
   bonusPowerUps: 0
   initializeHighScores: 1
@@ -357,6 +357,10 @@ PrefabInstance:
     - target: {fileID: 5670571159097655551, guid: 492ea93f3101e0248ac4cf6f23332191, type: 3}
       propertyPath: m_Name
       value: GlobalGameState
+      objectReference: {fileID: 0}
+    - target: {fileID: 5670571159097655551, guid: 492ea93f3101e0248ac4cf6f23332191, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -984,6 +988,10 @@ PrefabInstance:
     - target: {fileID: 4373345726625825309, guid: c8d68a943f40e77479382f501574572d, type: 3}
       propertyPath: m_Name
       value: SFXmanager
+      objectReference: {fileID: 0}
+    - target: {fileID: 4373345726625825309, guid: c8d68a943f40e77479382f501574572d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

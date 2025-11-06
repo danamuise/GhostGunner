@@ -31,7 +31,7 @@ public class GridTargetSpawner : MonoBehaviour
     [Range(0f, 0.5f)] public float rotationZRange = 0.1f;
 
     [Header("Health Clamp")]
-    public int maxHealthClamp = 40;
+    public int maxHealthClamp = 90;
 
     [Header("Power-Up Manager")]
     public PowerUpManager powerUpManager;
@@ -57,6 +57,15 @@ public class GridTargetSpawner : MonoBehaviour
             if (powerUpManager == null)
             {
                 Debug.LogError("PowerUpManager is not assigned and could not be found in the scene!");
+            }
+        }
+
+        if (targetHealthCurve == null)
+        {
+            targetHealthCurve = FindObjectOfType<TargetHealthCurve>();
+            if (targetHealthCurve == null)
+            {
+                Debug.LogWarning("[GridTargetSpawner] TargetHealthCurve not found in scene; health will default to 1.");
             }
         }
 
@@ -87,18 +96,30 @@ public class GridTargetSpawner : MonoBehaviour
 
         lastEmptyColumn = emptyCol;
 
-        int baseHealth;
+        // -------- Anchor-aware base health selection --------
+        int curveValue = targetHealthCurve != null ? targetHealthCurve.GetHealthForMove(moveCount) : 1;
+        bool continuing = (GameState.Instance != null && GameState.Instance.ContinueFromLastSave && GameState.Instance.SavedTargetHealth > 0);
 
-        if (GameState.Instance.ContinueFromLastSave && GameState.Instance.SavedTargetHealth > 0)
+        int baseHealth;
+        if (continuing && targetHealthCurve != null && targetHealthCurve.IsAnchored)
         {
-            int ddaHealth = targetHealthCurve != null ? targetHealthCurve.GetHealthForMove(moveCount) : 1;
-            baseHealth = Mathf.Min(GameState.Instance.SavedTargetHealth + ddaHealth - 1, maxHealthClamp);
-            Debug.Log($"📥 Using DDA adjusted saved health: {baseHealth} (Saved={GameState.Instance.SavedTargetHealth}, DDA={ddaHealth})");
+            // Curve is already lifted to start at saved value (e.g., 36 at move 1) → trust it.
+            baseHealth = Mathf.Min(curveValue, maxHealthClamp);
+            Debug.Log($"🧭 [Spawner] Using ANCHORED curve health = {baseHealth} (move {moveCount}).");
+        }
+        else if (continuing && (targetHealthCurve == null || !targetHealthCurve.IsAnchored) && moveCount == 1)
+        {
+            // First move, not anchored for some reason → use raw saved value (belt-and-suspenders path).
+            baseHealth = Mathf.Min(GameState.Instance.SavedTargetHealth, maxHealthClamp);
+            Debug.Log($"🧭 [Spawner] Unanchored first move → using SAVED health = {baseHealth} (saved={GameState.Instance.SavedTargetHealth}).");
         }
         else
         {
-            baseHealth = targetHealthCurve != null ? targetHealthCurve.GetHealthForMove(moveCount) : 1;
+            // Fresh runs or general fallback → use the curve as-is.
+            baseHealth = Mathf.Min(curveValue, maxHealthClamp);
+            Debug.Log($"🧭 [Spawner] Using curve health = {baseHealth} (move {moveCount}).");
         }
+        // ----------------------------------------------------
 
         for (int i = 0; i < maxAllowed; i++)
         {

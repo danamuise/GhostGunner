@@ -106,7 +106,7 @@ public class GameState : MonoBehaviour
 
     public void LoadState()
     {
-        Debug.Log($"📦 GameState loaded — Health: {SavedTargetHealth}, Bullets: {SavedBulletCount}, Score: {CurrentScore}");
+        Debug.LogFormat("<color=green>💾 GameState Loaded — Health: {0}, Bullets: {1}, Score: {2}</color>", SavedTargetHealth, SavedBulletCount, CurrentScore);
     }
 
     public void PlayButtonClickSound()

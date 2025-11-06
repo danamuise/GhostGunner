@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b395329b4862d4da5e2b739efa281f, type: 3}
+  m_Name: BeamLightningPUdata 1
+  m_EditorClassIdentifier: 
+  powerUpName: BeamFrostPU
+  powerUpPrefab: {fileID: 7329726899166178089, guid: d994e7cec528791449196853d53e3a4f, type: 3}
+  priority: 3
+  cooldown: 3
+  spawnAfterMove: 0
+  requiredLevel: 3
+  requiredScore: 0
+  pickupVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
+  pickupSFX: 
+  probability: 1
+  alternateWithPrevious: 0
+  requiresMaxBullets: 0
+  stopAfterMaxBullets: 0
+  spawnOnlyOnce: 0
+  spawnOnAllLevels: 0
+  elapsedMoves: 1
