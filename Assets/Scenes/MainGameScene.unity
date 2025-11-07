@@ -3028,7 +3028,7 @@ MonoBehaviour:
     wordBalloon: {fileID: 7688554010722634964, guid: 2c4a50d45d278b541abcec8df051dfec, type: 3}
     hitVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
     outline: {fileID: 281938772}
-    chargeRequired: 10
+    chargeRequired: 1000
   - type: 2
     icon: {fileID: 95354132}
     wordBalloon: {fileID: 7688554010722634964, guid: 2c4a50d45d278b541abcec8df051dfec, type: 3}
@@ -10365,67 +10365,6 @@ MonoBehaviour:
   barSprites: []
   redLightOn: {fileID: 0}
   greenLightOn: {fileID: 0}
---- !u!1001 &1550968503
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.07
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1190482125691038494, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3484144675269225601, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_Name
-      value: iphoneFrame
-      objectReference: {fileID: 0}
-    - target: {fileID: 3484144675269225601, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: e3ec47eece7d61c46965251a7ede497a, type: 3}
 --- !u!1 &1555319646
 GameObject:
   m_ObjectHideFlags: 0
@@ -15530,6 +15469,5 @@ SceneRoots:
   - {fileID: 871060448084940849}
   - {fileID: 721010758}
   - {fileID: 9152505216416168156}
-  - {fileID: 1550968503}
   - {fileID: 753661150}
   - {fileID: 453662226}
