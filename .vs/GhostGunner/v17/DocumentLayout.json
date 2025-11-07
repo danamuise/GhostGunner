@@ -3,11 +3,15 @@
   "WorkspaceRootPath": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\assets\\scripts\\gameplay\\gameover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\assets\\book-page curl\\scripts\\autoflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|solutionrelative:assets\\book-page curl\\scripts\\autoflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|c:\\users\\danam\\documents\\github\\repo10_13\\ghostgunner\\assets\\scripts\\gameplay\\gameover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\gameover.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|c:\\users\\danam\\documents\\github\\repo10_13\\ghostgunner\\assets\\scripts\\gameplay\\challengemode1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\assets\\scripts\\gameplay\\challengemode1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\challengemode1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -98,10 +102,6 @@
       "RelativeMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameplay\\cl1_buttonhandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\assets\\book-page curl\\scripts\\autoflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|solutionrelative:assets\\book-page curl\\scripts\\autoflip.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\assets\\scripts\\powerups\\powerupdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{E5B4F225-7901-C8B8-2E94-579DF31C81D6}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\powerups\\powerupdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -137,50 +137,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 8,
+          "SelectedChildIndex": 10,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "GameManager.cs",
-              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameManager.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameManager.cs",
-              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameManager.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameManager.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAmwBoAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T04:52:31.472Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GameState.cs",
-              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameState.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameState.cs",
-              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameState.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameState.cs",
-              "ViewState": "AgIAABcAAAAAAAAAAAAUwA8AAAAWAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T02:42:37.397Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "GridTargetSpawner.cs",
-              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
-              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
-              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAlAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-01T18:11:05.514Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 15,
               "Title": "UIManager.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\UI\\UIManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\UI\\UIManager.cs",
@@ -192,7 +153,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 14,
               "Title": "SpriteBlinker.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\SpriteBlinker.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\SpriteBlinker.cs",
@@ -204,7 +165,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 13,
               "Title": "TextBlinker.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\TextBlinker.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\TextBlinker.cs",
@@ -216,7 +177,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "TargetHealthCurve.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\TargetRelated\\TargetHealthCurve.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\TargetRelated\\TargetHealthCurve.cs",
@@ -224,12 +185,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\TargetRelated\\TargetHealthCurve.cs",
               "ViewState": "AgIAACQAAAAAAAAAAAAiwDsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-04T23:38:29.265Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-04T23:38:29.265Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "PowerUpManager.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
@@ -237,12 +197,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\PowerUpManager.cs",
               "ViewState": "AgIAALUAAAAAAAAAAAAQwNMAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T01:20:00.21Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T01:20:00.21Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "GameOver.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameOver.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameOver.cs",
@@ -255,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ChallengeMode1.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\ChallengeMode1.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\ChallengeMode1.cs",
@@ -263,12 +222,11 @@
               "RelativeToolTip": "Assets\\Scripts\\Gameplay\\ChallengeMode1.cs",
               "ViewState": "AgIAAI4BAAAAAAAAAAAAwLQBAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-09-30T01:28:22.311Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-09-30T01:28:22.311Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "SpecialWeapons.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\SpecialWeapons.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\SpecialWeapons.cs",
@@ -280,7 +238,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 18,
               "Title": "TargetBehavior.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\TargetBehavior.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\TargetBehavior.cs",
@@ -292,7 +250,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 17,
               "Title": "DevLevelTester.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\testing\\DevLevelTester.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\testing\\DevLevelTester.cs",
@@ -304,7 +262,56 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 0,
+              "Title": "AutoFlip.cs",
+              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
+              "RelativeDocumentMoniker": "Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
+              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
+              "RelativeToolTip": "Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAcwAwAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-04T19:19:25.717Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "GridTargetSpawner.cs",
+              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
+              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GridTargetSpawner.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-10-01T18:11:05.514Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameState.cs",
+              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameState.cs",
+              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameState.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAUwA8AAAAWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T02:42:37.397Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "GameManager.cs",
+              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Gameplay\\GameManager.cs",
+              "ViewState": "AgIAAE0AAAAAAAAAAAAmwBoAAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-09-30T04:52:31.472Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
               "Title": "DebugUpdater.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Library\\PackageCache\\com.unity.render-pipelines.core@5e056b397fc0\\Runtime\\Debugging\\DebugUpdater.cs",
               "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.render-pipelines.core@5e056b397fc0\\Runtime\\Debugging\\DebugUpdater.cs",
@@ -316,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "SceneStateDebugger.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\testing\\SceneStateDebugger.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\testing\\SceneStateDebugger.cs",
@@ -328,7 +335,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 12,
               "Title": "TMPblinker.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\TMPblinker.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\TMPblinker.cs",
@@ -340,7 +347,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "BookPhotoMatcher.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\BookPhotoMatcher.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\BookPhotoMatcher.cs",
@@ -352,7 +359,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "BonusPoints.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\BonusPoints.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\BonusPoints.cs",
@@ -364,7 +371,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 19,
               "Title": "GhostShooter.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\GhostShooter.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\GhostShooter.cs",
@@ -376,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 24,
               "Title": "CL1_buttonHandler.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\CL1_buttonHandler.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\CL1_buttonHandler.cs",
@@ -388,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 20,
               "Title": "FireSequence.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\FireSequence.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\FireSequence.cs",
@@ -400,7 +407,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 21,
               "Title": "Book.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Book-Page Curl\\scripts\\Book.cs",
               "RelativeDocumentMoniker": "Assets\\Book-Page Curl\\scripts\\Book.cs",
@@ -412,7 +419,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 22,
               "Title": "SFXmanager.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Scripts\\Gameplay\\SFXmanager.cs",
               "RelativeDocumentMoniker": "Assets\\Scripts\\Gameplay\\SFXmanager.cs",
@@ -460,7 +467,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 23,
               "Title": "CL2_buttonHandler.cs",
               "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo9_29_25\\GhostGunner\\Assets\\Scripts\\Gameplay\\CL2_buttonHandler.cs",
               "RelativeDocumentMoniker": "..\\..\\Repo9_29_25\\GhostGunner\\Assets\\Scripts\\Gameplay\\CL2_buttonHandler.cs",
@@ -480,18 +487,6 @@
               "ViewState": "AgIAAAgAAAAAAAAAAAAAwB8AAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-10-02T17:01:26.516Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "AutoFlip.cs",
-              "DocumentMoniker": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
-              "RelativeDocumentMoniker": "Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
-              "ToolTip": "C:\\Users\\danam\\Documents\\GitHub\\Repo10_13\\GhostGunner\\Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
-              "RelativeToolTip": "Assets\\Book-Page Curl\\scripts\\AutoFlip.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-04T19:19:25.717Z"
             },
             {
               "$type": "Document",

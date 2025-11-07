@@ -2866,12 +2866,20 @@ PrefabInstance:
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3469118070026442668, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
+      propertyPath: AutoStartFlip
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469118070026442668, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
       propertyPath: TimeBetweenPages
-      value: 2
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3469118070026442668, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
       propertyPath: DelayBeforeStarting
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3469118070026442668, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
+      propertyPath: AnimationFramesCount
+      value: 28
       objectReference: {fileID: 0}
     - target: {fileID: 3638928768170905904, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
       propertyPath: m_Name
@@ -2903,7 +2911,7 @@ PrefabInstance:
       objectReference: {fileID: 9054623960157620940}
     - target: {fileID: 3771111335988009315, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
       propertyPath: interactable
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3771111335988009315, guid: 47445f11e0526e046b91ce3354590c28, type: 3}
       propertyPath: wordBalloon1
