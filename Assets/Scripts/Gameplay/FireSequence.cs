@@ -1,5 +1,4 @@
 ﻿// FireSequence.cs
-using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,10 +10,10 @@ public class FireSequence : MonoBehaviour
     public float targetDestroyDelay = 0.5f;
     public float targetDelayTime = 0.25f;   // [0, 0, 1×, 2×, ...] row stagger
     public float postHold = 0.35f;          // pause after last row
-    public SpriteRenderer tinter; 
+    public SpriteRenderer tinter;
 
     [Header("Grid / Targets")]
-    public string targetTag = "Target";     // kept for consistency (not required by this impl)
+    public string targetTag = "Target"; // kept for consistency (not required by this impl)
     private TargetGridManager grid;
 
     [Header("Gun (match NukeSequence)")]
@@ -30,16 +29,16 @@ public class FireSequence : MonoBehaviour
         StartCoroutine(RunSequence());
     }
 
-    [System.Obsolete]
     private IEnumerator RunSequence()
     {
         grid = FindObjectOfType<TargetGridManager>();
 
-        // Stop music and play the FireSequenceSFX with NO pitch variation
+        // Audio
         SFXManager.Instance?.StopMusic();
         SFXManager.Instance?.Play("FireSequenceSFX", 1f, 1f, 1f);
 
-        TargetManager.blockAdvance = true;
+        // 🔒 Block advances for the whole sweep
+        TargetManager.SetAdvanceBlocked(true);
         Debug.Log("🔥 FireSequence: advance BLOCKED.");
 
         if (gun != null)
@@ -48,23 +47,21 @@ public class FireSequence : MonoBehaviour
             Debug.Log("🔫 Gun disabled at start of FireSequence.");
         }
 
-        // CameraShaker.Instance?.Shake(6f, 0.05f);
-
         // Let any just-enabled targets register in grid
         yield return null;
 
         if (grid == null)
         {
             Debug.LogWarning("🔥 FireSequence: No TargetGridManager found.");
-            yield return FinishAndCleanup();
+            yield return FinishAndMaybeLoad();
             yield break;
         }
 
-        // Find occupied grid bounds by brute scanning with grid APIs (no world→grid conversion)
+        // Find occupied bounds
         if (!FindOccupiedBounds(grid, out int minCol, out int maxCol, out int minRow, out int maxRow))
         {
             Debug.LogWarning("🔥 FireSequence: No occupied cells found.");
-            yield return FinishAndCleanup();
+            yield return FinishAndMaybeLoad();
             yield break;
         }
 
@@ -103,7 +100,7 @@ public class FireSequence : MonoBehaviour
                 }
                 else
                 {
-                    Destroy(target); // fallback (no score)
+                    Object.Destroy(target); // fallback (no score)
                     killed++;
                     Debug.LogWarning($"🔥 Row {row} col {col}: Destroyed target w/o TargetBehavior.");
                 }
@@ -113,26 +110,20 @@ public class FireSequence : MonoBehaviour
         }
 
         if (postHold > 0f) yield return new WaitForSeconds(postHold);
-        yield return FinishAndCleanup();
+
+        yield return FinishAndMaybeLoad();
     }
 
-    private IEnumerator FinishAndCleanup()
+    private IEnumerator FinishAndMaybeLoad()
     {
-        //TargetManager.blockAdvance = false;
-        //Debug.Log("🔥 FireSequence complete: advance UNBLOCKED.");
+        // If you want to resume gameplay in the SAME scene, uncomment:
+        // TargetManager.SetAdvanceBlocked(false);
+        // if (gun != null) gun.EnableGun(true);
 
-        if (gun != null)
-        {
-            //gun.EnableGun(true);
-            //Debug.Log("🔫 Gun re-enabled after FireSequence.");
-        }
-
-        // Reset so it can run again if re-enabled later
-        running = false;
         // Fade to black and wait for it to finish
         yield return FadeToBlack(1.0f);
 
-        //gameObject.SetActive(false);
+        // Load the next level after a brief delay (implemented in FadeToBlack)
         yield break;
     }
 
@@ -185,7 +176,7 @@ public class FireSequence : MonoBehaviour
             yield break;
         }
 
-        Color color = tinter.color;
+        Color startColor = tinter.color;
         float elapsedTime = 0f;
 
         // Gradually increase the alpha value from 0 to 1 over fadeTime
@@ -193,20 +184,24 @@ public class FireSequence : MonoBehaviour
         {
             elapsedTime += Time.deltaTime;
             float alpha = Mathf.Clamp01(elapsedTime / fadeTime);
-            tinter.color = new Color(color.r, color.g, color.b, alpha);
+            tinter.color = new Color(startColor.r, startColor.g, startColor.b, alpha);
             yield return null;
         }
 
         // Ensure the alpha is set to 1 at the end
-        tinter.color = new Color(color.r, color.g, color.b, 1f);
+        tinter.color = new Color(startColor.r, startColor.g, startColor.b, 1f);
 
         // Add a delay before loading the next level
         float delayBeforeLoad = 0.5f; // Adjust this value as needed
         yield return new WaitForSeconds(delayBeforeLoad);
 
+        // ✅ Unblock just before scene transition
+        TargetManager.SetAdvanceBlocked(false);
+
         // Load the next level after the delay
         LoadChallengeLevel1();
     }
+
     public void LoadChallengeLevel1()
     {
         GameState.Instance.challegeLevel2 = true;

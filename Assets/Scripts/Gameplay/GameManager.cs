@@ -173,7 +173,21 @@ public class GameManager : MonoBehaviour
         Debug.Log($"<color=green>🌟 MOVE {moveCount} initiating</color>");
 
         float rowSpacing = grid.cellHeight;
-        yield return StartCoroutine(targetManager.MoveTargetsDown(rowSpacing));
+        // If a block engaged between shot and move, skip the move cleanly
+        if (TargetManager.blockAdvance)
+        {
+            Debug.Log("↩️ Skipping MoveTargetsDown — advance is BLOCKED.");
+            roundInProgress = false;
+            yield break;
+        }
+
+        // Use the new safe entry point; it returns null if blocked mid-call
+        var move = targetManager.StartMoveTargetsDown(rowSpacing);
+        if (move != null)
+            yield return move;
+        else
+            Debug.Log("↩️ MoveTargetsDown request was ignored (blocked).");
+
 
         gridTargetSpawner.AdvanceAllTargetsAndSpawnNew(moveCount);
         yield return new WaitForSeconds(0.6f);

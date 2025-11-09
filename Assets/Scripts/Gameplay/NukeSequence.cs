@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿// NukeSequence.cs
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,7 +12,10 @@ public class NukeSequence : MonoBehaviour
     public GhostShooter gun;
 
     private Coroutine explosionRoutine;
-    private List<GameObject> activeExplosions = new List<GameObject>();
+    private readonly List<GameObject> activeExplosions = new List<GameObject>();
+
+    private int totalExplosionsSpawned = 0;
+    public int maxExplosions = 20;
 
     void Start()
     {
@@ -19,7 +23,7 @@ public class NukeSequence : MonoBehaviour
         SFXManager.Instance.Play("NukeSequenceSFX", 1.0f, 1.0f, 1.0f);
 
         // 🔒 Prevent enemies from advancing during the Nuke sequence
-        TargetManager.blockAdvance = true;
+        TargetManager.SetAdvanceBlocked(true);
         Debug.Log("🚫 Target advance blocked — Nuke sequence started!");
 
         if (gun != null)
@@ -37,20 +41,16 @@ public class NukeSequence : MonoBehaviour
 
     public void InstantiateExplosions()
     {
-       
-
         if (explosionRoutine != null)
             StopCoroutine(explosionRoutine);
 
         explosionRoutine = StartCoroutine(ExplosionRoutine());
     }
 
-    private int totalExplosionsSpawned = 0;
-    public int maxExplosions = 20;
-
     private IEnumerator ExplosionRoutine()
     {
         float elapsedTime = 0f;
+        totalExplosionsSpawned = 0;
 
         while (elapsedTime < explodeDuration && totalExplosionsSpawned < maxExplosions)
         {
@@ -94,6 +94,9 @@ public class NukeSequence : MonoBehaviour
 
     public void LoadChallengeLevel1()
     {
+        // ✅ Unblock just before scene transition (next scene resets it too, but this is explicit)
+        TargetManager.SetAdvanceBlocked(false);
+
         Debug.Log("🔄 Loading ChallengeLevel1 scene...");
         SceneManager.LoadScene("ChallengeLevel1");
     }
