@@ -10,6 +10,8 @@ public class SplashScreenAController : MonoBehaviour
     public TMP_Text text2;
     public TMP_Text text3; // Funny message
     public TMP_Text text4; // Contact message
+    public TMP_Text text5; // Link message
+    public GameObject skipButton;
 
     [Header("GameObject References")]
     public GameObject ghostParent;
@@ -64,7 +66,17 @@ public class SplashScreenAController : MonoBehaviour
         text3.gameObject.SetActive(false);
         text4.gameObject.SetActive(true);
 
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
+        text5.gameObject.SetActive(true);
+        skipButton.SetActive(true);
+
+
+    yield return new WaitForSeconds(3f);
+        GoToSplashScreenB();
+    }
+
+    public void GoToSplashScreenB()
+    {
         SceneManager.LoadScene("SplashScreenB");
     }
 }
