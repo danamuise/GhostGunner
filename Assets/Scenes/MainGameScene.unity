@@ -3034,7 +3034,7 @@ MonoBehaviour:
     wordBalloon: {fileID: 7688554010722634964, guid: 2c4a50d45d278b541abcec8df051dfec, type: 3}
     hitVFX: {fileID: 809694007750273945, guid: 190adb9d99eea5345a3d3afa20aab50b, type: 3}
     outline: {fileID: 1961081815}
-    chargeRequired: 1000
+    chargeRequired: 1500
   consoleTargetPosition: {x: -1.48, y: -3.72, z: 0}
   travelDuration: 0.75
 --- !u!4 &417556524
